@@ -1,67 +1,526 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>PathCarbon – Carbon Intelligence for Fashion</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;600&display=swap" rel="stylesheet">
-  <style>
-    * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Inter', sans-serif; }
-    body { background-color: #0e1f1e; color: #e0f2f1; line-height: 1.6; padding: 2rem; }
-    header { text-align: center; padding: 3rem 1rem; }
-    header h1 { font-size: 2.5rem; color: #a5d6a7; }
-    header p { font-size: 1.2rem; color: #c8e6c9; margin-top: 1rem; }
-    section { margin: 3rem 0; }
-    h2 { color: #81c784; border-bottom: 1px solid #66bb6a; margin-bottom: 1rem; }
-    .content { max-width: 800px; margin: 0 auto; }
-    .about img { width: 100px; height: auto; margin-bottom: 1rem; }
-    form { display: flex; flex-direction: column; gap: 1rem; margin-top: 1rem; }
-    input, textarea { padding: 0.75rem; border: none; border-radius: 5px; font-size: 1rem; }
-    button { background-color: #66bb6a; color: white; padding: 0.75rem; border: none; border-radius: 5px; cursor: pointer; }
-    footer { text-align: center; margin-top: 4rem; font-size: 0.9rem; color: #a5d6a7; }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PathCarbon | Carbon Intelligence for Fashion's Future</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'deep-green': '#0e1f1e',
+                        'mint-green': '#a5d6a7',
+                        'charcoal': '#2d3748',
+                        'softer-white': '#f0fdfa'
+                    },
+                    fontFamily: {
+                        'sans': ['Inter', 'Roboto', 'sans-serif']
+                    },
+                    animation: {
+                        'float': 'float 6s ease-in-out infinite',
+                        'pulse-green': 'pulse-green 4s cubic-bezier(0.4, 0, 0.6, 1) infinite'
+                    },
+                    keyframes: {
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0)' },
+                            '50%': { transform: 'translateY(-20px)' }
+                        },
+                        'pulse-green': {
+                            '0%, 100%': { 'box-shadow': '0 0 0 0 rgba(165, 214, 167, 0.7)' },
+                            '50%': { 'box-shadow': '0 0 0 10px rgba(165, 214, 167, 0)' }
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <style type="text/tailwindcss">
+        @layer components {
+            .btn-primary {
+                @apply bg-mint-green text-deep-green font-semibold px-8 py-3 rounded-lg transition-all duration-300;
+            }
+            .btn-primary:hover {
+                @apply bg-opacity-90 transform -translate-y-1 shadow-lg;
+            }
+            .btn-outline {
+                @apply border-2 border-mint-green text-mint-green font-semibold px-8 py-3 rounded-lg transition-all duration-300;
+            }
+            .btn-outline:hover {
+                @apply bg-mint-green bg-opacity-10 transform -translate-y-1;
+            }
+            .section-padding {
+                @apply py-20 px-4 md:px-8 lg:px-16;
+            }
+            .card {
+                @apply bg-charcoal p-8 rounded-xl shadow-xl;
+            }
+        }
+        
+        html {
+            scroll-behavior: smooth;
+        }
+        
+        body {
+            @apply bg-deep-green text-softer-white font-sans;
+        }
+        
+        .leaf-pattern {
+            background-image: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M11 18c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm48 25c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm-43-7c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm63 31c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM34 90c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm56-76c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM12 86c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm28-65c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm23-11c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-6 60c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm29 22c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zM32 63c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm57-13c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-9-21c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM60 91c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM35 41c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM12 60c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2z' fill='%231f2937' fill-opacity='0.3' fill-rule='evenodd'/%3E%3C/svg%3E");
+        }
+        
+        /* Carbon Path Animation */
+        @keyframes drawPath {
+            to {
+                stroke-dashoffset: 0;
+            }
+        }
+        
+        .carbon-path {
+            stroke-dasharray: 1000;
+            stroke-dashoffset: 1000;
+            animation: drawPath 5s linear forwards;
+        }
+    </style>
 </head>
 <body>
-  <header>
-    <img src="https://via.placeholder.com/100x100.png?text=Logo" alt="PathCarbon Logo">
-    <h1>PathCarbon</h1>
-    <p>Carbon Intelligence for the Apparel and Footwear Industry</p>
-  </header>
-
-  <section class="content">
-    <h2>What We Do</h2>
-    <p>PathCarbon is an AI-powered carbon accounting platform designed for the apparel and footwear industry. We provide science-based emissions data, PEF-aligned LCA models, and actionable intelligence for brands aiming to meet climate targets.</p>
-  </section>
-
-  <section class="content">
-    <h2>Who It's For</h2>
-    <p>Fashion brands, ESG teams, sustainability officers, product designers, and supply chain leaders looking to decarbonize their value chains.</p>
-  </section>
-
-  <section class="content">
-    <h2>How It Works</h2>
-    <p>We combine curated supply chain activity data, ecoinvent inventory, and advanced AI models to deliver precise carbon footprint estimates—stage by stage. Our tool aligns with Product Environmental Footprint (PEF) and GHG Protocol standards.</p>
-  </section>
-
-  <section class="content about">
-    <h2>About</h2>
-    <p>Founded by Kamil, an LCA and productivity analysis expert with deep experience in carbon accounting for fashion and food systems, PathCarbon blends domain knowledge with modern AI to drive actionable impact.</p>
-  </section>
-
-  <section class="content">
-    <h2>Contact Us</h2>
-    <form action="https://formspree.io/f/your-form-id" method="POST">
-      <input type="text" name="name" placeholder="Your Name" required />
-      <input type="email" name="_replyto" placeholder="Your Email" required />
-      <textarea name="message" rows="4" placeholder="Your Message" required></textarea>
-      <button type="submit">Send</button>
-    </form>
-    <p>Or email us at <a href="mailto:hello@pathcarbon.com" style="color:#a5d6a7;">hello@pathcarbon.com</a></p>
-  </section>
-
-  <footer>
-    &copy; 2025 PathCarbon. All rights reserved.
-  </footer>
+    <!-- Navigation -->
+    <nav class="fixed w-full z-50 bg-deep-green/90 backdrop-blur-sm border-b border-charcoal py-4">
+        <div class="max-w-7xl mx-auto px-4 flex justify-between items-center">
+            <a href="#" class="flex items-center space-x-3">
+                <div class="relative">
+                    <div class="absolute w-12 h-12 bg-mint-green rounded-full animate-pulse-green"></div>
+                    <svg class="relative w-12 h-12" viewBox="0 0 100 100">
+                        <path d="M50 15 C70 25, 85 50, 50 85 C15 50, 30 25, 50 15 Z" stroke="#a5d6a7" fill="none" stroke-width="5" class="carbon-path"/>
+                        <path d="M50 20 L50 80 M20 50 L80 50" stroke="#a5d6a7" stroke-width="3" class="carbon-path" style="animation-delay: 0.5s"/>
+                        <circle cx="50" cy="50" r="7" fill="#a5d6a7" class="carbon-path" style="animation-delay: 1.5s"/>
+                    </svg>
+                </div>
+                <span class="text-2xl font-bold bg-gradient-to-r from-mint-green to-emerald-300 bg-clip-text text-transparent">Path<span class="text-softer-white">Carbon</span></span>
+            </a>
+            
+            <div class="hidden md:flex space-x-8 items-center">
+                <a href="#what-we-do" class="hover:text-mint-green transition">Solutions</a>
+                <a href="#for-whom" class="hover:text-mint-green transition">For Whom</a>
+                <a href="#how-it-works" class="hover:text-mint-green transition">Technology</a>
+                <a href="#founder" class="hover:text-mint-green transition">Founder</a>
+                <a href="#contact" class="btn-outline">Get in Touch</a>
+            </div>
+            
+            <div class="md:hidden">
+                <button id="mobile-menu-button" class="text-softer-white">
+                    <i class="fas fa-bars text-2xl"></i>
+                </button>
+            </div>
+        </div>
+        
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="md:hidden absolute top-full left-0 w-full bg-deep-green shadow-lg hidden py-4">
+            <div class="flex flex-col items-center space-y-4">
+                <a href="#what-we-do" class="hover:text-mint-green transition">Solutions</a>
+                <a href="#for-whom" class="hover:text-mint-green transition">For Whom</a>
+                <a href="#how-it-works" class="hover:text-mint-green transition">Technology</a>
+                <a href="#founder" class="hover:text-mint-green transition">Founder</a>
+                <a href="#contact" class="btn-outline mt-4">Get in Touch</a>
+            </div>
+        </div>
+    </nav>
+    
+    <!-- Hero Section -->
+    <section class="pt-32 pb-20 md:pt-40 md:pb-28 px-4 bg-gradient-to-br from-deep-green to-black relative overflow-hidden">
+        <div class="max-w-7xl mx-auto relative z-10">
+            <div class="flex flex-col md:flex-row items-center">
+                <div class="md:w-1/2 text-center md:text-left">
+                    <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight">
+                        Measure What Matters.
+                        <br>
+                        <span class="bg-gradient-to-r from-mint-green to-emerald-300 bg-clip-text text-transparent">Decarbonize What You Wear.</span>
+                    </h1>
+                    <p class="text-xl md:text-2xl text-softer-white/80 mt-6 max-w-2xl">
+                        AI-powered carbon intelligence for the fashion industry
+                    </p>
+                    <div class="mt-10 flex flex-col sm:flex-row sm:space-x-4 space-y-4 sm:space-y-0 justify-center md:justify-start">
+                        <a href="#contact" class="btn-primary animate-float">Get Started</a>
+                        <a href="#how-it-works" class="btn-outline">See How It Works</a>
+                    </div>
+                </div>
+                <div class="md:w-1/2 mt-16 md:mt-0 flex justify-center">
+                    <div class="relative">
+                        <div class="absolute inset-0 bg-mint-green rounded-full animate-ping opacity-20"></div>
+                        <div class="relative w-80 h-80 bg-deep-green border-2 border-mint-green/20 rounded-2xl shadow-2xl flex items-center justify-center">
+                            <div class="text-center p-6">
+                                <div class="bg-mint-green/10 p-6 rounded-2xl mb-6">
+                                    <i class="fas fa-leaf text-6xl text-mint-green mb-4"></i>
+                                    <div class="h-2 w-full bg-deep-green rounded-full overflow-hidden">
+                                        <div class="h-full bg-mint-green" style="width: 65%;"></div>
+                                    </div>
+                                </div>
+                                <p class="text-sm text-mint-green">Carbon Intelligence Platform</p>
+                                <p class="text-2xl font-bold mt-2">Average Reduction</p>
+                                <div class="text-5xl font-bold text-mint-green mt-2">42%</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="absolute top-0 right-0 w-1/2 h-full leaf-pattern opacity-20"></div>
+        <div class="absolute -bottom-40 -left-40 w-96 h-96 rounded-full bg-mint-green/10 blur-3xl"></div>
+    </section>
+    
+    <!-- What We Do -->
+    <section id="what-we-do" class="section-padding bg-gradient-to-b from-deep-green to-black">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center mb-20">
+                <h2 class="text-4xl font-bold">Sustainable Intelligence <span class="text-mint-green">for Apparel</span></h2>
+                <div class="h-1 w-24 bg-mint-green mx-auto mt-6"></div>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="card group">
+                    <div class="w-16 h-16 bg-mint-green/10 flex items-center justify-center rounded-lg mb-6 group-hover:bg-mint-green/20 transition">
+                        <i class="fas fa-cloud text-3xl text-mint-green"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-4">Carbon Footprint Analysis</h3>
+                    <p class="text-softer-white/80">AI-driven Life Cycle Assessment (LCA) models that automate carbon footprint analysis for apparel and footwear brands using verified supply chain data.</p>
+                </div>
+                
+                <div class="card group">
+                    <div class="w-16 h-16 bg-mint-green/10 flex items-center justify-center rounded-lg mb-6 group-hover:bg-mint-green/20 transition">
+                        <i class="fas fa-robot text-3xl text-mint-green"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-4">AI-Powered Insights</h3>
+                    <p class="text-softer-white/80">Our machine learning algorithms provide actionable decarbonization strategies tailored to your specific products and supply chains.</p>
+                </div>
+                
+                <div class="card group">
+                    <div class="w-16 h-16 bg-mint-green/10 flex items-center justify-center rounded-lg mb-6 group-hover:bg-mint-green/20 transition">
+                        <i class="fas fa-globe text-3xl text-mint-green"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-4">Compliance Ready</h3>
+                    <p class="text-softer-white/80">Fully compliant with PEF, GHG Protocol, and SBTi frameworks. Automate reporting and meet industry standards effortlessly.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- For Whom -->
+    <section id="for-whom" class="section-padding bg-black">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center mb-20">
+                <h2 class="text-4xl font-bold">Designed for <span class="text-mint-green">Sustainability Leaders</span></h2>
+                <p class="text-xl mt-4 text-softer-white/80 max-w-3xl mx-auto">PathCarbon empowers professionals at every level of the fashion industry to make data-driven sustainability decisions.</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-6">
+                <div class="card text-center group">
+                    <div class="w-20 h-20 bg-mint-green/10 rounded-full flex items-center justify-center mx-auto mb-6 group-hover:bg-mint-green/20 transition">
+                        <i class="fas fa-tshirt text-3xl text-mint-green"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold">Fashion Brands</h3>
+                </div>
+                
+                <div class="card text-center group">
+                    <div class="w-20 h-20 bg-mint-green/10 rounded-full flex items-center justify-center mx-auto mb-6 group-hover:bg-mint-green/20 transition">
+                        <i class="fas fa-chart-line text-3xl text-mint-green"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold">ESG Leaders</h3>
+                </div>
+                
+                <div class="card text-center group">
+                    <div class="w-20 h-20 bg-mint-green/10 rounded-full flex items-center justify-center mx-auto mb-6 group-hover:bg-mint-green/20 transition">
+                        <i class="fas fa-ruler-combined text-3xl text-mint-green"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold">Product Designers</h3>
+                </div>
+                
+                <div class="card text-center group">
+                    <div class="w-20 h-20 bg-mint-green/10 rounded-full flex items-center justify-center mx-auto mb-6 group-hover:bg-mint-green/20 transition">
+                        <i class="fas fa-file-contract text-3xl text-mint-green"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold">Compliance Teams</h3>
+                </div>
+                
+                <div class="card text-center group">
+                    <div class="w-20 h-20 bg-mint-green/10 rounded-full flex items-center justify-center mx-auto mb-6 group-hover:bg-mint-green/20 transition">
+                        <i class="fas fa-hands-helping text-3xl text-mint-green"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold">Sustainability Consultants</h3>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- How It Works -->
+    <section id="how-it-works" class="section-padding relative bg-gradient-to-b from-black to-deep-green">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center mb-20">
+                <h2 class="text-4xl font-bold">Supply Chain <span class="text-mint-green">Decarbonization</span></h2>
+                <p class="text-xl mt-4 text-softer-white/80 max-w-3xl mx-auto">Our technology integrates region-specific activity data with verified emission inventories.</p>
+            </div>
+            
+            <div class="relative">
+                <div class="hidden lg:block absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
+                    <div class="bg-mint-green/20 w-96 h-96 rounded-full blur-3xl"></div>
+                </div>
+                
+                <div class="grid grid-cols-1 lg:grid-cols-4 gap-8 relative z-10">
+                    <!-- Stage 1 -->
+                    <div class="card group text-center">
+                        <div class="text-5xl text-mint-green mb-4">01</div>
+                        <div class="w-20 h-20 bg-mint-green/10 rounded-full flex items-center justify-center mx-auto mb-6 group-hover:bg-mint-green/20 transition">
+                            <i class="fas fa-seedling text-3xl text-mint-green"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold mb-4">Fibre Production</h3>
+                        <p class="text-softer-white/80">Raw material extraction, agriculture, and synthetic fibre production analysis.</p>
+                    </div>
+                    
+                    <!-- Stage 2 -->
+                    <div class="card group text-center">
+                        <div class="text-5xl text-mint-green mb-4">02</div>
+                        <div class="w-20 h-20 bg-mint-green/10 rounded-full flex items-center justify-center mx-auto mb-6 group-hover:bg-mint-green/20 transition">
+                            <i class="fas fa-stream text-3xl text-mint-green"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold mb-4">Yarn Processing</h3>
+                        <p class="text-softer-white/80">Spinning, texturing, and yarn manufacturing processes energy and emissions.</p>
+                    </div>
+                    
+                    <!-- Stage 3 -->
+                    <div class="card group text-center">
+                        <div class="text-5xl text-mint-green mb-4">03</div>
+                        <div class="w-20 h-20 bg-mint-green/10 rounded-full flex items-center justify-center mx-auto mb-6 group-hover:bg-mint-green/20 transition">
+                            <i class="fas fa-cut text-3xl text-mint-green"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold mb-4">Fabric Production</h3>
+                        <p class="text-softer-white/80">Weaving, knitting, dyeing, printing, and finishing emissions calculation.</p>
+                    </div>
+                    
+                    <!-- Stage 4 -->
+                    <div class="card group text-center">
+                        <div class="text-5xl text-mint-green mb-4">04</div>
+                        <div class="w-20 h-20 bg-mint-green/10 rounded-full flex items-center justify-center mx-auto mb-6 group-hover:bg-mint-green/20 transition">
+                            <i class="fas fa-tshirt text-3xl text-mint-green"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold mb-4">Garment Assembly</h3>
+                        <p class="text-softer-white/80">Cutting, sewing, quality control, and packaging energy analysis.</p>
+                    </div>
+                </div>
+                
+                <!-- Tech Badges -->
+                <div class="flex flex-wrap justify-center mt-16 gap-4">
+                    <div class="bg-mint-green/10 px-6 py-3 rounded-full flex items-center">
+                        <i class="fas fa-database text-mint-green mr-2"></i>
+                        <span>ecoinvent Data</span>
+                    </div>
+                    <div class="bg-mint-green/10 px-6 py-3 rounded-full flex items-center">
+                        <i class="fas fa-brain text-mint-green mr-2"></i>
+                        <span>Machine Learning</span>
+                    </div>
+                    <div class="bg-mint-green/10 px-6 py-3 rounded-full flex items-center">
+                        <i class="fas fa-cogs text-mint-green mr-2"></i>
+                        <span>Automated LCA</span>
+                    </div>
+                    <div class="bg-mint-green/10 px-6 py-3 rounded-full flex items-center">
+                        <i class="fas fa-globe-europe text-mint-green mr-2"></i>
+                        <span>Global Emission Factors</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Founder Section -->
+    <section id="founder" class="section-padding bg-deep-green">
+        <div class="max-w-7xl mx-auto">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                <div class="relative">
+                    <div class="relative overflow-hidden rounded-2xl bg-mint-green/10 p-1">
+                        <div class="bg-gray-200 border-2 border-dashed rounded-xl w-full h-96"></div>
+                        <div class="absolute bottom-4 left-4 bg-mint-green/90 backdrop-blur px-6 py-4 rounded-xl max-w-md">
+                            <p class="text-sm italic text-softer-white">"Sustainability isn't just about measuring footprints - it's about creating pathways to transformation."</p>
+                        </div>
+                    </div>
+                    
+                    <div class="absolute -top-4 -right-4 bg-charcoal p-4 rounded-full border-4 border-deep-green">
+                        <div class="bg-mint-green/10 w-16 h-16 rounded-full flex items-center justify-center">
+                            <i class="fas fa-graduation-cap text-2xl text-mint-green"></i>
+                        </div>
+                    </div>
+                </div>
+                
+                <div>
+                    <h2 class="text-4xl font-bold mb-6">Meet Our <span class="text-mint-green">Founder</span></h2>
+                    <p class="text-lg text-softer-white/90 mb-6">PathCarbon was founded by Kamil, a researcher and Life Cycle Assessment expert with a PhD in productivity and climate sustainability.</p>
+                    <p class="text-lg text-softer-white/90 mb-6">With deep industry experience and a sharp eye on real-world impact, Kamil and the PathCarbon team blend scientific rigor, strategic thinking, and cutting-edge software to provide practical decarbonization pathways.</p>
+                    
+                    <div class="flex flex-wrap gap-4">
+                        <div class="flex items-center space-x-2">
+                            <div class="bg-mint-green/10 p-2 rounded-lg">
+                                <i class="fas fa-book text-mint-green"></i>
+                            </div>
+                            <span>PhD Sustainability</span>
+                        </div>
+                        <div class="flex items-center space-x-2">
+                            <div class="bg-mint-green/10 p-2 rounded-lg">
+                                <i class="fas fa-medal text-mint-green"></i>
+                            </div>
+                            <span>LCA Expert</span>
+                        </div>
+                        <div class="flex items-center space-x-2">
+                            <div class="bg-mint-green/10 p-2 rounded-lg">
+                                <i class="fas fa-industry text-mint-green"></i>
+                            </div>
+                            <span>Industry Experience</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Contact Section -->
+    <section id="contact" class="section-padding bg-black relative overflow-hidden">
+        <div class="max-w-7xl mx-auto relative z-10">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-16">
+                <div>
+                    <h2 class="text-4xl font-bold mb-6">Ready to <span class="text-mint-green">Decarbonize</span> Fashion?</h2>
+                    <p class="text-xl text-softer-white/80 mb-10">Discover how PathCarbon can help your brand achieve measurable sustainability goals and compliance.</p>
+                    
+                    <div class="flex items-start space-x-4 mb-8">
+                        <div class="bg-mint-green/10 p-4 rounded-lg">
+                            <i class="fas fa-envelope text-2xl text-mint-green"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-xl font-semibold">Email Us</h3>
+                            <p class="text-lg text-mint-green">hello@pathcarbon.com</p>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-charcoal/50 border border-mint-green/20 p-6 rounded-xl">
+                        <h3 class="text-xl font-semibold mb-4">Join Our Webinar</h3>
+                        <p class="mb-4">Every Thursday: "The Future of Sustainable Fashion Technology"</p>
+                        <a href="#" class="inline-block text-mint-green hover:underline">Register now <i class="fas fa-arrow-right ml-1"></i></a>
+                    </div>
+                </div>
+                
+                <div class="card">
+                    <h3 class="text-2xl font-bold mb-8">Send us a message</h3>
+                    <form>
+                        <div class="mb-6">
+                            <label for="name" class="block mb-2">Full Name</label>
+                            <input type="text" id="name" class="w-full bg-deep-green border border-charcoal rounded-lg px-4 py-3 focus:border-mint-green focus:outline-none transition">
+                        </div>
+                        <div class="mb-6">
+                            <label for="email" class="block mb-2">Email Address</label>
+                            <input type="email" id="email" class="w-full bg-deep-green border border-charcoal rounded-lg px-4 py-3 focus:border-mint-green focus:outline-none transition">
+                        </div>
+                        <div class="mb-6">
+                            <label for="company" class="block mb-2">Company</label>
+                            <input type="text" id="company" class="w-full bg-deep-green border border-charcoal rounded-lg px-4 py-3 focus:border-mint-green focus:outline-none transition">
+                        </div>
+                        <div class="mb-6">
+                            <label for="message" class="block mb-2">Message</label>
+                            <textarea id="message" rows="4" class="w-full bg-deep-green border border-charcoal rounded-lg px-4 py-3 focus:border-mint-green focus:outline-none transition"></textarea>
+                        </div>
+                        <button type="submit" class="w-full btn-primary">Request Demo</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+        
+        <div class="absolute -bottom-1/3 -right-1/3 w-96 h-96 rounded-full bg-mint-green/10 blur-3xl"></div>
+        <div class="absolute -top-1/3 -left-1/3 w-96 h-96 rounded-full bg-mint-green/5 blur-3xl"></div>
+    </section>
+    
+    <!-- Footer -->
+    <footer class="py-12 border-t border-charcoal/30">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <div class="flex items-center space-x-3 mb-6 md:mb-0">
+                    <div class="relative">
+                        <div class="absolute w-10 h-10 bg-mint-green rounded-full opacity-20"></div>
+                        <svg class="relative w-10 h-10" viewBox="0 0 100 100">
+                            <path d="M50 15 C70 25, 85 50, 50 85 C15 50, 30 25, 50 15 Z" stroke="#a5d6a7" fill="none" stroke-width="3"/>
+                        </svg>
+                    </div>
+                    <span class="text-xl font-bold bg-gradient-to-r from-mint-green to-emerald-300 bg-clip-text text-transparent">Path<span class="text-softer-white">Carbon</span></span>
+                </div>
+                
+                <div class="text-sm text-softer-white/60 text-center">
+                    &copy; 2023 PathCarbon. All rights reserved.<br>
+                    Carbon Intelligence for Fashion's Future
+                </div>
+                
+                <div class="flex space-x-4 mt-6 md:mt-0">
+                    <a href="#" class="text-softer-white/70 hover:text-mint-green transition">
+                        <i class="fab fa-linkedin-in"></i>
+                    </a>
+                    <a href="#" class="text-softer-white/70 hover:text-mint-green transition">
+                        <i class="fab fa-twitter"></i>
+                    </a>
+                    <a href="#" class="text-softer-white/70 hover:text-mint-green transition">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </footer>
+    
+    <script>
+        // Mobile menu toggle
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+        
+        mobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+            mobileMenu.classList.toggle('animate-fadeIn');
+        });
+        
+        // Close mobile menu when clicking links
+        const mobileLinks = mobileMenu.querySelectorAll('a');
+        mobileLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+            });
+        });
+        
+        // Form submission handling
+        const contactForm = document.querySelector('form');
+        if (contactForm) {
+            contactForm.addEventListener('submit', (e) => {
+                e.preventDefault();
+                alert('Thank you! We will contact you shortly.');
+                contactForm.reset();
+            });
+        }
+        
+        // Observers for scroll animations
+        const observerOptions = {
+            root: null,
+            rootMargin: '0px',
+            threshold: 0.1
+        };
+        
+        const observer = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('animate-fadeIn', 'opacity-100');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
+        
+        // Observe all sections
+        document.querySelectorAll('section').forEach(section => {
+            section.classList.add('opacity-0', 'transition-opacity', 'duration-1000');
+            observer.observe(section);
+        });
+    </script>
 </body>
 </html>
