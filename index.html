@@ -16,7 +16,9 @@
                         'deep-green': '#0e1f1e',
                         'mint-green': '#a5d6a7',
                         'charcoal': '#2d3748',
-                        'softer-white': '#f0fdfa'
+                        'softer-white': '#f0fdfa',
+                        'eco-blue': '#80dfe2',
+                        'forest-green': '#1c382e'
                     },
                     fontFamily: {
                         'sans': ['Inter', 'Roboto', 'sans-serif']
@@ -54,6 +56,12 @@
             .btn-outline:hover {
                 @apply bg-mint-green bg-opacity-10 transform -translate-y-1;
             }
+            .btn-secondary {
+                @apply bg-forest-green text-eco-blue font-semibold px-8 py-3 rounded-lg transition-all duration-300;
+            }
+            .btn-secondary:hover {
+                @apply bg-opacity-90 transform -translate-y-1 shadow-lg;
+            }
             .section-padding {
                 @apply py-20 px-4 md:px-8 lg:px-16;
             }
@@ -86,6 +94,22 @@
             stroke-dashoffset: 1000;
             animation: drawPath 5s linear forwards;
         }
+        
+        .platform-progress {
+            height: 6px;
+            border-radius: 3px;
+            overflow: hidden;
+        }
+        
+        .progress-bar {
+            height: 100%;
+            animation: progress-grow 3s ease-in-out forwards;
+        }
+        
+        @keyframes progress-grow {
+            from { width: 0; }
+            to { width: 65%; }
+        }
     </style>
 </head>
 <body>
@@ -105,10 +129,10 @@
             </a>
             
             <div class="hidden md:flex space-x-8 items-center">
+                <a href="#manual-lca" class="hover:text-mint-green transition">Services</a>
                 <a href="#what-we-do" class="hover:text-mint-green transition">Solutions</a>
                 <a href="#for-whom" class="hover:text-mint-green transition">For Whom</a>
-                <a href="#how-it-works" class="hover:text-mint-green transition">Technology</a>
-                <a href="#founder" class="hover:text-mint-green transition">Founder</a>
+                <a href="#development" class="hover:text-mint-green transition">Platform</a>
                 <a href="#contact" class="btn-outline">Get in Touch</a>
             </div>
             
@@ -122,10 +146,10 @@
         <!-- Mobile Menu -->
         <div id="mobile-menu" class="md:hidden absolute top-full left-0 w-full bg-deep-green shadow-lg hidden py-4">
             <div class="flex flex-col items-center space-y-4">
+                <a href="#manual-lca" class="hover:text-mint-green transition">Services</a>
                 <a href="#what-we-do" class="hover:text-mint-green transition">Solutions</a>
                 <a href="#for-whom" class="hover:text-mint-green transition">For Whom</a>
-                <a href="#how-it-works" class="hover:text-mint-green transition">Technology</a>
-                <a href="#founder" class="hover:text-mint-green transition">Founder</a>
+                <a href="#development" class="hover:text-mint-green transition">Platform</a>
                 <a href="#contact" class="btn-outline mt-4">Get in Touch</a>
             </div>
         </div>
@@ -146,8 +170,10 @@
                     </p>
                     <div class="mt-10 flex flex-col sm:flex-row sm:space-x-4 space-y-4 sm:space-y-0 justify-center md:justify-start">
                         <a href="#contact" class="btn-primary animate-float">Get Started</a>
-                        <a href="#how-it-works" class="btn-outline">See How It Works</a>
+                        <a href="#manual-lca" class="btn-secondary ml-0 sm:ml-2">Request LCA Service</a>
+                        <a href="#how-it-works" class="btn-outline hidden sm:block">See How It Works</a>
                     </div>
+                    <a href="#how-it-works" class="block sm:hidden btn-outline mt-4">See How It Works</a>
                 </div>
                 <div class="md:w-1/2 mt-16 md:mt-0 flex justify-center">
                     <div class="relative">
@@ -174,11 +200,121 @@
         <div class="absolute -bottom-40 -left-40 w-96 h-96 rounded-full bg-mint-green/10 blur-3xl"></div>
     </section>
     
+    <!-- Service Notice -->
+    <section class="bg-forest-green py-10 px-4">
+        <div class="max-w-7xl mx-auto text-center">
+            <div class="inline-flex items-center bg-deep-green bg-opacity-30 px-6 py-4 rounded-xl backdrop-blur-sm">
+                <i class="fas fa-info-circle text-eco-blue text-2xl mr-4"></i>
+                <p class="text-lg text-eco-blue">
+                    <span class="font-bold">Note:</span> Our AI-powered carbon accounting platform is currently in development. In the meantime, we offer manual Life Cycle Assessment (LCA) services to help fashion brands assess and reduce their carbon footprint.
+                </p>
+                <a href="#manual-lca" class="ml-8 btn-secondary text-sm px-5 py-2">Learn More</a>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Manual LCA Services Section -->
+    <section id="manual-lca" class="section-padding bg-gradient-to-b from-deep-green to-black">
+        <div class="max-w-7xl mx-auto">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+                <div class="card">
+                    <h2 class="text-3xl font-bold mb-2"><span class="text-mint-green">Manual LCA Services</span></h2>
+                    <p class="text-lg mb-8 text-softer-white/90">
+                        While our automated platform is in progress, we provide expert-led Life Cycle Assessments to help you:
+                    </p>
+                    
+                    <div class="space-y-6">
+                        <div class="flex items-start">
+                            <div class="w-10 h-10 bg-mint-green/20 rounded-full flex items-center justify-center mr-4 flex-shrink-0">
+                                <i class="fas fa-search text-mint-green"></i>
+                            </div>
+                            <div>
+                                <h3 class="text-xl font-bold">Understand your product's environmental impact</h3>
+                                <p class="text-softer-white/80 mt-2">Detailed analysis from raw materials to disposal</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start">
+                            <div class="w-10 h-10 bg-mint-green/20 rounded-full flex items-center justify-center mr-4 flex-shrink-0">
+                                <i class="fas fa-chart-line text-mint-green"></i>
+                            </div>
+                            <div>
+                                <h3 class="text-xl font-bold">Identify key areas for carbon reduction</h3>
+                                <p class="text-softer-white/80 mt-2">Actionable insights to lower your emissions</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start">
+                            <div class="w-10 h-10 bg-mint-green/20 rounded-full flex items-center justify-center mr-4 flex-shrink-0">
+                                <i class="fas fa-file-certificate text-mint-green"></i>
+                            </div>
+                            <div>
+                                <h3 class="text-xl font-bold">Comply with sustainability standards</h3>
+                                <p class="text-softer-white/80 mt-2">GHG Protocol, SBTi, PEF, and industry regulations</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <a href="#contact" class="btn-secondary mt-10 inline-block">Request LCA Service</a>
+                </div>
+                
+                <div class="flex flex-col justify-center">
+                    <div class="relative border-2 border-mint-green/30 rounded-2xl p-1 overflow-hidden">
+                        <div class="w-full h-full bg-deep-green/80 backdrop-blur p-8 rounded-xl">
+                            <h3 class="text-2xl font-bold mb-6">Why Start With Manual LCA?</h3>
+                            
+                            <div class="space-y-6">
+                                <div class="flex items-start">
+                                    <i class="fas fa-check-circle text-mint-green text-xl mt-1 mr-4"></i>
+                                    <div>
+                                        <h4 class="font-bold">Baseline Understanding</h4>
+                                        <p class="text-softer-white/80 mt-2">Establish accurate emissions measurements before automation</p>
+                                    </div>
+                                </div>
+                                
+                                <div class="flex items-start">
+                                    <i class="fas fa-check-circle text-mint-green text-xl mt-1 mr-4"></i>
+                                    <div>
+                                        <h4 class="font-bold">Strategy Development</h4>
+                                        <p class="text-softer-white/80 mt-2">Create targeted decarbonization strategies for each product</p>
+                                    </div>
+                                </div>
+                                
+                                <div class="flex items-start">
+                                    <i class="fas fa-check-circle text-mint-green text-xl mt-1 mr-4"></i>
+                                    <div>
+                                        <h4 class="font-bold">Future Integration</h4>
+                                        <p class="text-softer-white/80 mt-2">Smooth transition to automated platform when ready</p>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="mt-10">
+                                <div class="h-24 bg-charcoal rounded-xl flex flex-col items-center justify-center">
+                                    <div class="text-mint-green text-lg font-bold">Get Expert Support Now</div>
+                                    <div class="mt-4 text-eco-blue">
+                                        <i class="fas fa-phone-alt mr-2"></i> <span class="font-mono">+91 827-993-8099</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="absolute -top-6 -right-6 w-32 h-32 rounded-full bg-mint-green/20 blur-xl"></div>
+                        <div class="absolute -bottom-6 -left-6 w-40 h-40 rounded-full bg-mint-green/20 blur-xl"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
     <!-- What We Do -->
     <section id="what-we-do" class="section-padding bg-gradient-to-b from-deep-green to-black">
         <div class="max-w-7xl mx-auto">
             <div class="text-center mb-20">
-                <h2 class="text-4xl font-bold">Sustainable Intelligence <span class="text-mint-green">for Apparel</span></h2>
+                <h2 class="text-4xl font-bold">Integrated <span class="text-mint-green">Solutions</span></h2>
+                <p class="text-lg text-softer-white/80 max-w-3xl mx-auto mt-4">
+                    Combining expert manual services with next-generation automation
+                </p>
                 <div class="h-1 w-24 bg-mint-green mx-auto mt-6"></div>
             </div>
             
@@ -189,6 +325,7 @@
                     </div>
                     <h3 class="text-2xl font-bold mb-4">Carbon Footprint Analysis</h3>
                     <p class="text-softer-white/80">AI-driven Life Cycle Assessment (LCA) models that automate carbon footprint analysis for apparel and footwear brands using verified supply chain data.</p>
+                    <a href="#contact" class="btn-secondary text-sm px-5 py-2 mt-6 inline-block">Request Service</a>
                 </div>
                 
                 <div class="card group">
@@ -197,6 +334,7 @@
                     </div>
                     <h3 class="text-2xl font-bold mb-4">AI-Powered Insights</h3>
                     <p class="text-softer-white/80">Our machine learning algorithms provide actionable decarbonization strategies tailored to your specific products and supply chains.</p>
+                    <a href="#contact" class="btn-secondary text-sm px-5 py-2 mt-6 inline-block">Request Service</a>
                 </div>
                 
                 <div class="card group">
@@ -205,13 +343,98 @@
                     </div>
                     <h3 class="text-2xl font-bold mb-4">Compliance Ready</h3>
                     <p class="text-softer-white/80">Fully compliant with PEF, GHG Protocol, and SBTi frameworks. Automate reporting and meet industry standards effortlessly.</p>
+                    <a href="#contact" class="btn-secondary text-sm px-5 py-2 mt-6 inline-block">Request Service</a>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Platform Development -->
+    <section id="development" class="section-padding bg-black">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center mb-20">
+                <h2 class="text-4xl font-bold">Platform <span class="text-eco-blue">Development</span> Update</h2>
+                <p class="text-lg text-softer-white/80 max-w-3xl mx-auto mt-4">
+                    Our AI-powered carbon accounting platform is on the horizon!
+                </p>
+                <div class="h-1 w-24 bg-eco-blue mx-auto mt-6"></div>
+            </div>
+            
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                <div class="relative">
+                    <div class="absolute -top-10 -left-10 w-64 h-64 rounded-full bg-eco-blue/10 blur-xl"></div>
+                    <div class="relative bg-charcoal p-1 rounded-2xl">
+                        <div class="relative w-full h-96 rounded-xl overflow-hidden flex items-center justify-center">
+                            <div class="absolute w-full h-full bg-gradient-to-tr from-deep-green/50 to-eco-blue/20 backdrop-blur-sm"></div>
+                            
+                            <div class="relative w-72 h-72 rounded-full border-2 border-eco-blue/50 flex items-center justify-center">
+                                <div class="w-56 h-56 rounded-full border-2 border-eco-blue/50 flex items-center justify-center">
+                                    <div class="w-40 h-40 rounded-full bg-eco-blue/10 flex items-center justify-center">
+                                        <i class="fas fa-microchip text-6xl text-eco-blue"></i>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="absolute top-4 right-4 bg-charcoal/80 backdrop-blur py-2 px-4 rounded-full text-eco-blue">
+                                <i class="fas fa-code-branch mr-2"></i> Developer Preview
+                            </div>
+                            
+                            <div class="absolute bottom-6 left-0 right-0 px-8">
+                                <div class="text-center text-eco-blue font-bold text-lg mb-2">Platform Progress</div>
+                                <div class="platform-progress bg-charcoal w-full">
+                                    <div class="progress-bar bg-eco-blue"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div>
+                    <h3 class="text-2xl font-bold mb-6">Our Next-Generation Carbon Intelligence Platform</h3>
+                    <p class="text-lg text-softer-white/90 mb-6">We're working diligently to bring you a seamless, automated solution for tracking and reducing your fashion brand's carbon footprint.</p>
+                    
+                    <div class="space-y-4">
+                        <div class="flex items-start">
+                            <i class="fas fa-rocket text-eco-blue text-xl mt-1 mr-4"></i>
+                            <div>
+                                <h4 class="font-bold">Beta Testing Opportunities</h4>
+                                <p class="text-softer-white/80 mt-2">Be among the first to experience our AI-powered platform</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start">
+                            <i class="fas fa-bell text-eco-blue text-xl mt-1 mr-4"></i>
+                            <div>
+                                <h4 class="font-bold">Get Platform Updates</h4>
+                                <p class="text-softer-white/80 mt-2">Stay informed about our development milestones</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start">
+                            <i class="fas fa-lightbulb text-eco-blue text-xl mt-1 mr-4"></i>
+                            <div>
+                                <h4 class="font-bold">Shape the Future</h4>
+                                <p class="text-softer-white/80 mt-2">Provide input on features that matter to you</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="mt-10">
+                        <div class="bg-charcoal/50 backdrop-blur border border-eco-blue/20 rounded-xl p-6">
+                            <h4 class="font-bold text-eco-blue mb-4">Join Our Development Program</h4>
+                            <p class="mb-4">Get early access and exclusive benefits by joining our platform development program.</p>
+                            <a href="#contact" class="inline-block text-eco-blue hover:underline font-semibold">
+                                Join Waitlist <i class="fas fa-arrow-right ml-1"></i>
+                            </a>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
     
     <!-- For Whom -->
-    <section id="for-whom" class="section-padding bg-black">
+    <section id="for-whom" class="section-padding bg-deep-green">
         <div class="max-w-7xl mx-auto">
             <div class="text-center mb-20">
                 <h2 class="text-4xl font-bold">Designed for <span class="text-mint-green">Sustainability Leaders</span></h2>
@@ -336,7 +559,7 @@
     </section>
     
     <!-- Founder Section -->
-    <section id="founder" class="section-padding bg-deep-green">
+    <section id="founder" class="section-padding bg-black">
         <div class="max-w-7xl mx-auto">
             <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
                 <div class="relative">
@@ -356,7 +579,7 @@
                 
                 <div>
                     <h2 class="text-4xl font-bold mb-6">Meet Our <span class="text-mint-green">Founder</span></h2>
-                    <p class="text-lg text-softer-white/90 mb-6">PathCarbon was founded by Kamil, a researcher and Life Cycle Assessment expert with a PhD in productivity and climate sustainability.</p>
+                    <p class="text-lg text-softer-white/90 mb-6">PathCarbon was founded by Kamil, a Researcher and Life Cycle Assessment expert with a PhD in productivity and climate sustainability.</p>
                     <p class="text-lg text-softer-white/90 mb-6">With deep industry experience and a sharp eye on real-world impact, Kamil and the PathCarbon team blend scientific rigor, strategic thinking, and cutting-edge software to provide practical decarbonization pathways.</p>
                     
                     <div class="flex flex-wrap gap-4">
@@ -385,7 +608,7 @@
     </section>
     
     <!-- Contact Section -->
-    <section id="contact" class="section-padding bg-black relative overflow-hidden">
+    <section id="contact" class="section-padding bg-deep-green relative overflow-hidden">
         <div class="max-w-7xl mx-auto relative z-10">
             <div class="grid grid-cols-1 lg:grid-cols-2 gap-16">
                 <div>
@@ -398,7 +621,7 @@
                         </div>
                         <div>
                             <h3 class="text-xl font-semibold">Email Us</h3>
-                            <p class="text-lg text-mint-green">hello@pathcarbon.com</p>
+                            <p class="text-lg text-mint-green">kamil.iitk@gmail.com</p>
                         </div>
                     </div>
                     
@@ -411,24 +634,33 @@
                 
                 <div class="card">
                     <h3 class="text-2xl font-bold mb-8">Send us a message</h3>
-                    <form>
+                    <form id="contactForm">
                         <div class="mb-6">
-                            <label for="name" class="block mb-2">Full Name</label>
-                            <input type="text" id="name" class="w-full bg-deep-green border border-charcoal rounded-lg px-4 py-3 focus:border-mint-green focus:outline-none transition">
+                            <label for="name" class="block mb-2">Full Name *</label>
+                            <input type="text" id="name" class="w-full bg-deep-green border border-charcoal rounded-lg px-4 py-3 focus:border-mint-green focus:outline-none transition" required>
                         </div>
                         <div class="mb-6">
-                            <label for="email" class="block mb-2">Email Address</label>
-                            <input type="email" id="email" class="w-full bg-deep-green border border-charcoal rounded-lg px-4 py-3 focus:border-mint-green focus:outline-none transition">
+                            <label for="email" class="block mb-2">Email Address *</label>
+                            <input type="email" id="email" class="w-full bg-deep-green border border-charcoal rounded-lg px-4 py-3 focus:border-mint-green focus:outline-none transition" required>
                         </div>
                         <div class="mb-6">
                             <label for="company" class="block mb-2">Company</label>
                             <input type="text" id="company" class="w-full bg-deep-green border border-charcoal rounded-lg px-4 py-3 focus:border-mint-green focus:outline-none transition">
                         </div>
                         <div class="mb-6">
+                            <label for="service" class="block mb-2">Service Interest *</label>
+                            <select id="service" class="w-full bg-deep-green border border-charcoal rounded-lg px-4 py-3 focus:border-mint-green focus:outline-none transition" required>
+                                <option value="" disabled selected>Select service</option>
+                                <option value="lca">Manual LCA Service</option>
+                                <option value="platform">Platform Updates / Beta Testing</option>
+                                <option value="general">General Inquiry</option>
+                            </select>
+                        </div>
+                        <div class="mb-6">
                             <label for="message" class="block mb-2">Message</label>
                             <textarea id="message" rows="4" class="w-full bg-deep-green border border-charcoal rounded-lg px-4 py-3 focus:border-mint-green focus:outline-none transition"></textarea>
                         </div>
-                        <button type="submit" class="w-full btn-primary">Request Demo</button>
+                        <button type="submit" class="w-full btn-primary">Request Consultation</button>
                     </form>
                 </div>
             </div>
@@ -491,11 +723,25 @@
         });
         
         // Form submission handling
-        const contactForm = document.querySelector('form');
+        const contactForm = document.getElementById('contactForm');
         if (contactForm) {
             contactForm.addEventListener('submit', (e) => {
                 e.preventDefault();
-                alert('Thank you! We will contact you shortly.');
+                
+                // Get form values
+                const name = document.getElementById('name').value;
+                const service = document.getElementById('service').value;
+                
+                let message = "Thank you";
+                if (service === "lca") {
+                    message = "Thank you, " + name + "! Our LCA team will contact you shortly to discuss your manual Life Cycle Assessment needs.";
+                } else if (service === "platform") {
+                    message = "Thank you, " + name + "! We'll add you to our platform updates list and inform you about beta testing opportunities.";
+                } else {
+                    message = "Thank you for contacting PathCarbon, " + name + "! We'll respond to your inquiry within 1-2 business days.";
+                }
+                
+                alert(message);
                 contactForm.reset();
             });
         }
