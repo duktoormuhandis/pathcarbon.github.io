@@ -3,769 +3,981 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PathCarbon | Carbon Intelligence for Fashion's Future</title>
+    <title>PathCarbon | Carbon Accounting for Fashion</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        'deep-green': '#0e1f1e',
-                        'mint-green': '#a5d6a7',
-                        'charcoal': '#2d3748',
-                        'softer-white': '#f0fdfa',
-                        'eco-blue': '#80dfe2',
-                        'forest-green': '#1c382e'
-                    },
-                    fontFamily: {
-                        'sans': ['Inter', 'Roboto', 'sans-serif']
-                    },
-                    animation: {
-                        'float': 'float 6s ease-in-out infinite',
-                        'pulse-green': 'pulse-green 4s cubic-bezier(0.4, 0, 0.6, 1) infinite'
-                    },
-                    keyframes: {
-                        float: {
-                            '0%, 100%': { transform: 'translateY(0)' },
-                            '50%': { transform: 'translateY(-20px)' }
-                        },
-                        'pulse-green': {
-                            '0%, 100%': { 'box-shadow': '0 0 0 0 rgba(165, 214, 167, 0.7)' },
-                            '50%': { 'box-shadow': '0 0 0 10px rgba(165, 214, 167, 0)' }
-                        }
-                    }
-                }
-            }
-        }
-    </script>
-    
-    <style type="text/tailwindcss">
-        @layer components {
-            .btn-primary {
-                @apply bg-mint-green text-deep-green font-semibold px-8 py-3 rounded-lg transition-all duration-300;
-            }
-            .btn-primary:hover {
-                @apply bg-opacity-90 transform -translate-y-1 shadow-lg;
-            }
-            .btn-outline {
-                @apply border-2 border-mint-green text-mint-green font-semibold px-8 py-3 rounded-lg transition-all duration-300;
-            }
-            .btn-outline:hover {
-                @apply bg-mint-green bg-opacity-10 transform -translate-y-1;
-            }
-            .btn-secondary {
-                @apply bg-forest-green text-eco-blue font-semibold px-8 py-3 rounded-lg transition-all duration-300;
-            }
-            .btn-secondary:hover {
-                @apply bg-opacity-90 transform -translate-y-1 shadow-lg;
-            }
-            .section-padding {
-                @apply py-20 px-4 md:px-8 lg:px-16;
-            }
-            .card {
-                @apply bg-charcoal p-8 rounded-xl shadow-xl;
-            }
-        }
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
         
-        html {
+        body {
+            font-family: 'Inter', sans-serif;
             scroll-behavior: smooth;
         }
         
-        body {
-            @apply bg-deep-green text-softer-white font-sans;
+        .gradient-bg {
+            background: linear-gradient(135deg, #f0fff4 0%, #e6fffa 100%);
         }
         
-        .leaf-pattern {
-            background-image: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M11 18c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm48 25c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm-43-7c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm63 31c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM34 90c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm56-76c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM12 86c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm28-65c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm23-11c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-6 60c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm29 22c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zM32 63c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm57-13c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-9-21c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM60 91c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM35 41c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM12 60c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2z' fill='%231f2937' fill-opacity='0.3' fill-rule='evenodd'/%3E%3C/svg%3E");
+        .card-hover:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
         }
         
-        /* Carbon Path Animation */
-        @keyframes drawPath {
-            to {
-                stroke-dashoffset: 0;
-            }
-        }
-        
-        .carbon-path {
-            stroke-dasharray: 1000;
-            stroke-dashoffset: 1000;
-            animation: drawPath 5s linear forwards;
-        }
-        
-        .platform-progress {
-            height: 6px;
-            border-radius: 3px;
+        .expandable-content {
+            max-height: 0;
             overflow: hidden;
+            transition: max-height 0.3s ease-out;
         }
         
-        .progress-bar {
-            height: 100%;
-            animation: progress-grow 3s ease-in-out forwards;
+        .expandable-content.expanded {
+            max-height: 1000px;
+            transition: max-height 0.5s ease-in;
         }
         
-        @keyframes progress-grow {
-            from { width: 0; }
-            to { width: 65%; }
+        .leaf-icon {
+            color: #38a169;
+        }
+        
+        .wave-bg {
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 320'%3E%3Cpath fill='%23f0fff4' fill-opacity='1' d='M0,192L48,197.3C96,203,192,213,288,229.3C384,245,480,267,576,250.7C672,235,768,181,864,181.3C960,181,1056,235,1152,234.7C1248,235,1344,181,1392,154.7L1440,128L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z'%3E%3C/path%3E%3C/svg%3E");
+            background-repeat: no-repeat;
+            background-position: bottom;
+            background-size: 100%;
         }
     </style>
 </head>
-<body>
+<body class="bg-white text-gray-800">
     <!-- Navigation -->
-    <nav class="fixed w-full z-50 bg-deep-green/90 backdrop-blur-sm border-b border-charcoal py-4">
-        <div class="max-w-7xl mx-auto px-4 flex justify-between items-center">
-            <a href="#" class="flex items-center space-x-3">
-                <div class="relative">
-                    <div class="absolute w-12 h-12 bg-mint-green rounded-full animate-pulse-green"></div>
-                    <svg class="relative w-12 h-12" viewBox="0 0 100 100">
-                        <path d="M50 15 C70 25, 85 50, 50 85 C15 50, 30 25, 50 15 Z" stroke="#a5d6a7" fill="none" stroke-width="5" class="carbon-path"/>
-                        <path d="M50 20 L50 80 M20 50 L80 50" stroke="#a5d6a7" stroke-width="3" class="carbon-path" style="animation-delay: 0.5s"/>
-                        <circle cx="50" cy="50" r="7" fill="#a5d6a7" class="carbon-path" style="animation-delay: 1.5s"/>
-                    </svg>
+    <nav class="bg-white shadow-sm sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16">
+                <div class="flex items-center">
+                    <div class="flex-shrink-0 flex items-center">
+                        <span class="text-xl font-semibold">PathCarbon</span>
+                    </div>
                 </div>
-                <span class="text-2xl font-bold bg-gradient-to-r from-mint-green to-emerald-300 bg-clip-text text-transparent">Path<span class="text-softer-white">Carbon</span></span>
-            </a>
-            
-            <div class="hidden md:flex space-x-8 items-center">
-                <a href="#manual-lca" class="hover:text-mint-green transition">Services</a>
-                <a href="#what-we-do" class="hover:text-mint-green transition">Solutions</a>
-                <a href="#for-whom" class="hover:text-mint-green transition">For Whom</a>
-                <a href="#development" class="hover:text-mint-green transition">Platform</a>
-                <a href="#contact" class="btn-outline">Get in Touch</a>
-            </div>
-            
-            <div class="md:hidden">
-                <button id="mobile-menu-button" class="text-softer-white">
-                    <i class="fas fa-bars text-2xl"></i>
-                </button>
+                <div class="hidden sm:ml-6 sm:flex sm:space-x-8">
+                    <a href="#problem" class="border-green-500 text-gray-900 inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium">Problem</a>
+                    <a href="#solution" class="border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700 inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium">Solution</a>
+                    <a href="#pathcarbon-storyteller" class="border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700 inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium">Storyteller</a>
+                    <a href="#customers" class="border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700 inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium">Customers</a>
+                    <a href="#market" class="border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700 inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium">Market</a>
+                    <a href="#team" class="border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700 inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium">Team</a>
+                    <a href="#contact" class="border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700 inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium">Contact</a>
+                </div>
+                <div class="hidden sm:ml-6 sm:flex sm:items-center">
+                    <a href="mailto:ceo@pathcarbon.com" class="bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded-md text-sm font-medium">Get in Touch</a>
+                </div>
+                <div class="-mr-2 flex items-center sm:hidden">
+                    <button type="button" class="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-green-500" aria-controls="mobile-menu" aria-expanded="false" id="mobile-menu-button">
+                        <span class="sr-only">Open main menu</span>
+                        <svg class="block h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                        </svg>
+                    </button>
+                </div>
             </div>
         </div>
-        
-        <!-- Mobile Menu -->
-        <div id="mobile-menu" class="md:hidden absolute top-full left-0 w-full bg-deep-green shadow-lg hidden py-4">
-            <div class="flex flex-col items-center space-y-4">
-                <a href="#manual-lca" class="hover:text-mint-green transition">Services</a>
-                <a href="#what-we-do" class="hover:text-mint-green transition">Solutions</a>
-                <a href="#for-whom" class="hover:text-mint-green transition">For Whom</a>
-                <a href="#development" class="hover:text-mint-green transition">Platform</a>
-                <a href="#contact" class="btn-outline mt-4">Get in Touch</a>
+
+        <!-- Mobile menu -->
+        <div class="sm:hidden hidden" id="mobile-menu">
+            <div class="pt-2 pb-3 space-y-1">
+                <a href="#problem" class="bg-green-50 border-green-500 text-green-700 block pl-3 pr-4 py-2 border-l-4 text-base font-medium">Problem</a>
+                <a href="#solution" class="border-transparent text-gray-500 hover:bg-gray-50 hover:border-gray-300 hover:text-gray-700 block pl-3 pr-4 py-2 border-l-4 text-base font-medium">Solution</a>
+                <a href="#pathcarbon-storyteller" class="border-transparent text-gray-500 hover:bg-gray-50 hover:border-gray-300 hover:text-gray-700 block pl-3 pr-4 py-2 border-l-4 text-base font-medium">Storyteller</a>
+                <a href="#customers" class="border-transparent text-gray-500 hover:bg-gray-50 hover:border-gray-300 hover:text-gray-700 block pl-3 pr-4 py-2 border-l-4 text-base font-medium">Customers</a>
+                <a href="#market" class="border-transparent text-gray-500 hover:bg-gray-50 hover:border-gray-300 hover:text-gray-700 block pl-3 pr-4 py-2 border-l-4 text-base font-medium">Market</a>
+                <a href="#team" class="border-transparent text-gray-500 hover:bg-gray-50 hover:border-gray-300 hover:text-gray-700 block pl-3 pr-4 py-2 border-l-4 text-base font-medium">Team</a>
+                <a href="#contact" class="border-transparent text-gray-500 hover:bg-gray-50 hover:border-gray-300 hover:text-gray-700 block pl-3 pr-4 py-2 border-l-4 text-base font-medium">Contact</a>
+                <div class="mt-4 pl-3">
+                    <a href="mailto:ceo@pathcarbon.com" class="block w-full bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded-md text-center text-sm font-medium">Get in Touch</a>
+                </div>
             </div>
         </div>
     </nav>
-    
+
     <!-- Hero Section -->
-    <section class="pt-32 pb-20 md:pt-40 md:pb-28 px-4 bg-gradient-to-br from-deep-green to-black relative overflow-hidden">
-        <div class="max-w-7xl mx-auto relative z-10">
-            <div class="flex flex-col md:flex-row items-center">
-                <div class="md:w-1/2 text-center md:text-left">
-                    <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight">
-                        Measure What Matters.
-                        <br>
-                        <span class="bg-gradient-to-r from-mint-green to-emerald-300 bg-clip-text text-transparent">Decarbonize What You Wear.</span>
-                    </h1>
-                    <p class="text-xl md:text-2xl text-softer-white/80 mt-6 max-w-2xl">
-                        AI-powered carbon intelligence for the fashion industry
+    <header class="gradient-bg">
+        <div class="max-w-7xl mx-auto py-16 px-4 sm:py-24 sm:px-6 lg:px-8">
+            <div class="text-center">
+                <h1 class="text-4xl tracking-tight font-extrabold text-gray-900 sm:text-5xl md:text-6xl">
+                    <span class="block">Decoding Emissions.</span>
+                    <span class="block text-green-600">Powering Sustainable Fashion.</span>
+                </h1>
+                <p class="mt-3 max-w-md mx-auto text-base text-gray-500 sm:text-lg md:mt-5 md:text-xl md:max-w-3xl">
+                    PathCarbon is a carbon accounting SaaS for apparel and footwear companies, helping them comply with global regulations while gaining customer trust.
+                </p>
+                <div class="mt-8 flex justify-center">
+                    <div class="inline-flex rounded-md shadow">
+                        <a href="mailto:ceo@pathcarbon.com" class="inline-flex items-center justify-center px-5 py-3 border border-transparent text-base font-medium rounded-md text-white bg-green-600 hover:bg-green-700">
+                            Get in Touch
+                        </a>
+                    </div>
+                    <div class="ml-3 inline-flex">
+                        <a href="https://www.pathcarbon.com" target="_blank" class="inline-flex items-center justify-center px-5 py-3 border border-transparent text-base font-medium rounded-md text-green-700 bg-green-100 hover:bg-green-200">
+                            Visit our Website
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="wave-bg h-16 w-full"></div>
+    </header>
+
+    <!-- Problem Section -->
+    <section id="problem" class="py-12 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="lg:text-center">
+                <h2 class="text-base text-green-600 font-semibold tracking-wide uppercase">The Problem We're Solving</h2>
+                <p class="mt-2 text-3xl leading-8 font-extrabold tracking-tight text-gray-900 sm:text-4xl">
+                    Fashion emits 2.1B tonnes CO₂ annually. Most brands don't know their true footprint.
+                </p>
+            </div>
+
+            <div class="mt-10">
+                <div class="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-4">
+                    <div class="pt-6">
+                        <div class="flow-root bg-gray-50 rounded-lg px-6 pb-8 h-full">
+                            <div class="-mt-6">
+                                <div>
+                                    <span class="inline-flex items-center justify-center p-3 bg-green-500 rounded-md shadow-lg">
+                                        <i class="fas fa-exchange-alt text-white text-xl"></i>
+                                    </span>
+                                </div>
+                                <h3 class="mt-8 text-lg font-medium text-gray-900 tracking-tight">No standardized data</h3>
+                                <p class="mt-5 text-base text-gray-500">
+                                    No standardized product-level carbon data exists across fashion supply chains.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="pt-6">
+                        <div class="flow-root bg-gray-50 rounded-lg px-6 pb-8 h-full">
+                            <div class="-mt-6">
+                                <div>
+                                    <span class="inline-flex items-center justify-center p-3 bg-green-500 rounded-md shadow-lg">
+                                        <i class="fas fa-clock text-white text-xl"></i>
+                                    </span>
+                                </div>
+                                <h3 class="mt-8 text-lg font-medium text-gray-900 tracking-tight">Manual LCAs are inefficient</h3>
+                                <p class="mt-5 text-base text-gray-500">
+                                    Traditional lifecycle assessments are expensive, slow, and don't scale.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="pt-6">
+                        <div class="flow-root bg-gray-50 rounded-lg px-6 pb-8 h-full">
+                            <div class="-mt-6">
+                                <div>
+                                    <span class="inline-flex items-center justify-center p-3 bg-green-500 rounded-md shadow-lg">
+                                        <i class="fas fa-gavel text-white text-xl"></i>
+                                    </span>
+                                </div>
+                                <h3 class="mt-8 text-lg font-medium text-gray-900 tracking-tight">Regulatory pressure</h3>
+                                <p class="mt-5 text-base text-gray-500">
+                                    EU PEF, CSRD, and SBTi regulations demand automated traceability.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="pt-6">
+                        <div class="flow-root bg-gray-50 rounded-lg px-6 pb-8 h-full">
+                            <div class="-mt-6">
+                                <div>
+                                    <span class="inline-flex items-center justify-center p-3 bg-green-500 rounded-md shadow-lg">
+                                        <i class="fas fa-chart-line text-white text-xl"></i>
+                                    </span>
+                                </div>
+                                <h3 class="mt-8 text-lg font-medium text-gray-900 tracking-tight">Proof, not promises</h3>
+                                <p class="mt-5 text-base text-gray-500">
+                                    Customers & investors demand verifiable sustainability data.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Solution Section -->
+    <section id="solution" class="py-12 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="lg:text-center">
+                <h2 class="text-base text-green-600 font-semibold tracking-wide uppercase">What PathCarbon Does</h2>
+                <p class="mt-2 text-3xl leading-8 font-extrabold tracking-tight text-gray-900 sm:text-4xl">
+                    AI-powered, product-level carbon footprinting—from fibre to fashion
+                </p>
+                <p class="mt-4 max-w-2xl text-xl text-gray-500 lg:mx-auto">
+                    Brands input material, SKU, and sourcing info → we map emissions across the supply chain
+                </p>
+            </div>
+
+            <div class="mt-16">
+                <div class="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-4">
+                    <div class="pt-6 card-hover transition-all duration-300 ease-in-out">
+                        <div class="flow-root bg-white rounded-lg px-6 pb-8 h-full shadow-md">
+                            <div class="-mt-6">
+                                <div class="flex items-center justify-center h-12 w-12 rounded-md bg-green-500 text-white mx-auto">
+                                    <span class="text-xl">1</span>
+                                </div>
+                                <h3 class="mt-8 text-lg font-medium text-gray-900 tracking-tight">Input Product Data</h3>
+                                <p class="mt-5 text-base text-gray-500">
+                                    Enter SKU details, fabric composition, sourcing regions, and product specifications.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="pt-6 card-hover transition-all duration-300 ease-in-out">
+                        <div class="flow-root bg-white rounded-lg px-6 pb-8 h-full shadow-md">
+                            <div class="-mt-6">
+                                <div class="flex items-center justify-center h-12 w-12 rounded-md bg-green-500 text-white mx-auto">
+                                    <span class="text-xl">2</span>
+                                </div>
+                                <h3 class="mt-8 text-lg font-medium text-gray-900 tracking-tight">Supply Chain Modeling</h3>
+                                <p class="mt-5 text-base text-gray-500">
+                                    We map emissions across Fibre → Yarn → Fabric → Garment production stages.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="pt-6 card-hover transition-all duration-300 ease-in-out">
+                        <div class="flow-root bg-white rounded-lg px-6 pb-8 h-full shadow-md">
+                            <div class="-mt-6">
+                                <div class="flex items-center justify-center h-12 w-12 rounded-md bg-green-500 text-white mx-auto">
+                                    <span class="text-xl">3</span>
+                                </div>
+                                <h3 class="mt-8 text-lg font-medium text-gray-900 tracking-tight">Auto-Calculated Footprint</h3>
+                                <p class="mt-5 text-base text-gray-500">
+                                    Emissions calculated using verified databases (ecoinvent, GHG Protocol).
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="pt-6 card-hover transition-all duration-300 ease-in-out">
+                        <div class="flow-root bg-white rounded-lg px-6 pb-8 h-full shadow-md">
+                            <div class="-mt-6">
+                                <div class="flex items-center justify-center h-12 w-12 rounded-md bg-green-500 text-white mx-auto">
+                                    <span class="text-xl">4</span>
+                                </div>
+                                <h3 class="mt-8 text-lg font-medium text-gray-900 tracking-tight">Dashboard & Reports</h3>
+                                <p class="mt-5 text-base text-gray-500">
+                                    Interactive analytics and downloadable reports for compliance and storytelling.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gemini API Feature: PathCarbon Storyteller -->
+    <section id="pathcarbon-storyteller" class="py-12 bg-green-50">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h2 class="text-base text-green-600 font-semibold tracking-wide uppercase">AI-Powered Feature</h2>
+            <p class="mt-2 text-3xl leading-8 font-extrabold tracking-tight text-gray-900 sm:text-4xl">
+                PathCarbon Storyteller ✨
+            </p>
+            <p class="mt-4 text-xl text-gray-600">
+                Get sustainability ideas, average footprints, water use, and reduction strategies for your apparel and footwear products.
+            </p>
+
+            <div class="mt-10 bg-white p-8 rounded-lg shadow-md border border-gray-100">
+                <label for="productInput" class="block text-left text-lg font-medium text-gray-700 mb-3">Describe your apparel or footwear product:</label>
+                <textarea id="productInput" class="w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500 mb-4 text-gray-700" rows="6" placeholder="e.g., 'A pair of men's sneakers made with recycled polyester and a rubber sole, manufactured in Vietnam.' or 'A women's denim jacket made from organic cotton, dyed with natural indigo, produced in Turkey.'"></textarea>
+                <button id="generateStoryBtn" class="inline-flex items-center justify-center px-5 py-3 border border-transparent text-base font-medium rounded-md text-white bg-green-600 hover:bg-green-700 w-full">
+                    <i class="fas fa-magic mr-2"></i> Generate Sustainability Insights
+                </button>
+                <div id="loadingIndicator" class="hidden mt-4 text-green-600 font-medium">
+                    <i class="fas fa-spinner fa-spin mr-2"></i> Generating your insights...
+                </div>
+                <div id="storyOutput" class="mt-6 p-4 bg-green-100 border border-green-200 rounded-md text-left text-gray-800 whitespace-pre-wrap hidden">
+                    <!-- AI generated story will appear here -->
+                </div>
+                <div id="errorOutput" class="hidden mt-4 p-4 bg-red-100 border border-red-200 rounded-md text-left text-red-700">
+                    <!-- Error messages will appear here -->
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Customers Section -->
+    <section id="customers" class="py-12 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="lg:text-center">
+                <h2 class="text-base text-green-600 font-semibold tracking-wide uppercase">Target Customers</h2>
+                <p class="mt-2 text-3xl leading-8 font-extrabold tracking-tight text-gray-900 sm:text-4xl">
+                    Who needs PathCarbon and why?
+                </p>
+            </div>
+
+            <div class="mt-10">
+                <div class="grid grid-cols-1 gap-8 md:grid-cols-2">
+                    <div>
+                        <h3 class="text-lg font-medium text-gray-900 mb-4">Ideal Customers</h3>
+                        <ul class="space-y-4">
+                            <li class="flex items-start">
+                                <div class="flex-shrink-0">
+                                    <i class="fas fa-tshirt leaf-icon"></i>
+                                </div>
+                                <p class="ml-3 text-base text-gray-700">Apparel & footwear brands (SMEs and export-focused)</p>
+                            </li>
+                            <li class="flex items-start">
+                                <div class="flex-shrink-0">
+                                    <i class="fas fa-leaf leaf-icon"></i>
+                                </div>
+                                <p class="ml-3 text-base text-gray-700">Sustainable D2C brands</p>
+                            </li>
+                            <li class="flex items-start">
+                                <div class="flex-shrink-0">
+                                    <i class="fas fa-users leaf-icon"></i>
+                                </div>
+                                <p class="ml-3 text-base text-gray-700">ESG teams and product compliance officers</p>
+                            </li>
+                        </ul>
+                    </div>
+                    
+                    <div>
+                        <h3 class="text-lg font-medium text-gray-900 mb-4">Why They Need Us</h3>
+                        <ul class="space-y-4">
+                            <li class="flex items-start">
+                                <div class="flex-shrink-0">
+                                    <i class="fas fa-file-contract leaf-icon"></i>
+                                </div>
+                                <p class="ml-3 text-base text-gray-700">Meet regulatory demands (PEF, SBTi, CSRD)</p>
+                            </li>
+                            <li class="flex items-start">
+                                <div class="flex-shrink-0">
+                                    <i class="fas fa-chart-pie leaf-icon"></i>
+                                </div>
+                                <p class="ml-3 text-base text-gray-700">Get accurate Scope 3 emissions data</p>
+                            </li>
+                            <li class="flex items-start">
+                                <div class="flex-shrink-0">
+                                    <i class="fas fa-tag leaf-icon"></i>
+                                </div>
+                                <p class="ml-3 text-base text-gray-700">Enable carbon labelling & consumer transparency</p>
+                            </li>
+                            <li class="flex items-start">
+                                <div class="flex-shrink-0">
+                                    <i class="fas fa-money-bill-wave leaf-icon"></i>
+                                </div>
+                                <p class="ml-3 text-base text-gray-700">Save LCA consultant fees and time</p>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <!-- Revenue Model -->
+                <div class="mt-16">
+                    <div class="lg:text-center">
+                        <h2 class="text-base text-green-600 font-semibold tracking-wide uppercase">Revenue Model</h2>
+                        <p class="mt-2 text-3xl leading-8 font-extrabold tracking-tight text-gray-900 sm:text-4xl">
+                            Sustainable business for sustainable impact
+                        </p>
+                    </div>
+                    
+                    <div class="mt-10 grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-4">
+                        <div class="bg-white p-6 rounded-lg shadow-md border border-gray-100">
+                            <div class="flex items-center justify-center h-12 w-12 rounded-md bg-green-100 text-green-600 mb-4">
+                                <i class="fas fa-box-open text-xl"></i>
+                            </div>
+                            <h3 class="text-lg font-medium text-gray-900 mb-2">SaaS Subscription</h3>
+                            <p class="text-gray-600">Based on number of SKUs/products assessed</p>
+                        </div>
+                        
+                        <div class="bg-white p-6 rounded-lg shadow-md border border-gray-100">
+                            <div class="flex items-center justify-center h-12 w-12 rounded-md bg-green-100 text-green-600 mb-4">
+                                <i class="fas fa-code text-xl"></i>
+                            </div>
+                            <h3 class="text-lg font-medium text-gray-900 mb-2">API Access</h3>
+                            <p class="text-gray-600">For advanced users and enterprise integrations</p>
+                        </div>
+                        
+                        <div class="bg-white p-6 rounded-lg shadow-md border border-gray-100">
+                            <div class="flex items-center justify-center h-12 w-12 rounded-md bg-green-100 text-green-600 mb-4">
+                                <i class="fas fa-file-download text-xl"></i>
+                            </div>
+                            <h3 class="text-lg font-medium text-gray-900 mb-2">Add-on Reports</h3>
+                            <p class="text-gray-600">Downloadable compliance reports & benchmarks</p>
+                        </div>
+                        
+                        <div class="bg-white p-6 rounded-lg shadow-md border border-gray-100">
+                            <div class="flex items-center justify-center h-12 w-12 rounded-md bg-green-100 text-green-600 mb-4">
+                                <i class="fas fa-rocket text-xl"></i>
+                            </div>
+                            <h3 class="text-lg font-medium text-gray-900 mb-2">Freemium Model</h3>
+                            <p class="text-gray-600">For early-stage brands (under development)</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Market Opportunity -->
+    <section id="market" class="py-12 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="lg:text-center">
+                <h2 class="text-base text-green-600 font-semibold tracking-wide uppercase">Market Opportunity</h2>
+                <p class="mt-2 text-3xl leading-8 font-extrabold tracking-tight text-gray-900 sm:text-4xl">
+                    A $10B sustainability market by 2030
+                </p>
+            </div>
+
+            <div class="mt-10 grid grid-cols-1 gap-8 md:grid-cols-2">
+                <div class="bg-white p-8 rounded-xl shadow-md">
+                    <div class="flex items-center justify-center h-16 w-16 rounded-full bg-green-100 text-green-600 mb-6">
+                        <i class="fas fa-globe-americas text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-4">Global Fashion Sustainability Market</h3>
+                    <p class="text-gray-600 mb-4">Projected to cross $10 billion by 2030 with increasing regulatory pressure and consumer demand for transparency.</p>
+                    <div class="bg-green-50 p-4 rounded-lg">
+                        <p class="text-green-700 font-medium">Over 90,000 brands exporting apparel from India, EU, Bangladesh, and Vietnam face regulatory push.</p>
+                    </div>
+                </div>
+                
+                <div class="bg-white p-8 rounded-xl shadow-md">
+                    <div class="flex items-center justify-center h-16 w-16 rounded-full bg-green-100 text-green-600 mb-6">
+                        <i class="fas fa-flag text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-4">Underserved Indian Market</h3>
+                    <p class="text-gray-600 mb-4">India alone has over 20,000 registered garment exporters who currently lack access to affordable carbon intelligence tools.</p>
+                    <div class="bg-green-50 p-4 rounded-lg">
+                        <p class="text-green-700 font-medium">Early mover advantage in a market where carbon accounting is becoming mandatory for EU exports.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Current Traction -->
+            <div class="mt-16">
+                <div class="lg:text-center">
+                    <h2 class="text-base text-green-600 font-semibold tracking-wide uppercase">Current Traction</h2>
+                    <p class="mt-2 text-3xl leading-8 font-extrabold tracking-tight text-gray-900 sm:text-4xl">
+                        Progress and Validation
                     </p>
-                    <div class="mt-10 flex flex-col sm:flex-row sm:space-x-4 space-y-4 sm:space-y-0 justify-center md:justify-start">
-                        <a href="#contact" class="btn-primary animate-float">Get Started</a>
-                        <a href="#manual-lca" class="btn-secondary ml-0 sm:ml-2">Request LCA Service</a>
-                        <a href="#how-it-works" class="btn-outline hidden sm:block">See How It Works</a>
-                    </div>
-                    <a href="#how-it-works" class="block sm:hidden btn-outline mt-4">See How It Works</a>
                 </div>
-                <div class="md:w-1/2 mt-16 md:mt-0 flex justify-center">
-                    <div class="relative">
-                        <div class="absolute inset-0 bg-mint-green rounded-full animate-ping opacity-20"></div>
-                        <div class="relative w-80 h-80 bg-deep-green border-2 border-mint-green/20 rounded-2xl shadow-2xl flex items-center justify-center">
-                            <div class="text-center p-6">
-                                <div class="bg-mint-green/10 p-6 rounded-2xl mb-6">
-                                    <i class="fas fa-leaf text-6xl text-mint-green mb-4"></i>
-                                    <div class="h-2 w-full bg-deep-green rounded-full overflow-hidden">
-                                        <div class="h-full bg-mint-green" style="width: 65%;"></div>
-                                    </div>
-                                </div>
-                                <p class="text-sm text-mint-green">Carbon Intelligence Platform</p>
-                                <p class="text-2xl font-bold mt-2">Under Development</p>
-                                <div class="text-5xl font-bold text-mint-green mt-2">42%</div>
-                            </div>
+                
+                <div class="mt-10 grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3">
+                    <div class="bg-white p-6 rounded-lg shadow-md border border-gray-100">
+                        <div class="flex items-center justify-center h-12 w-12 rounded-md bg-green-100 text-green-600 mb-4">
+                            <i class="fas fa-laptop-code text-xl"></i>
                         </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        
-        <div class="absolute top-0 right-0 w-1/2 h-full leaf-pattern opacity-20"></div>
-        <div class="absolute -bottom-40 -left-40 w-96 h-96 rounded-full bg-mint-green/10 blur-3xl"></div>
-    </section>
-    
-    <!-- Service Notice -->
-    <section class="bg-forest-green py-10 px-4">
-        <div class="max-w-7xl mx-auto text-center">
-            <div class="inline-flex items-center bg-deep-green bg-opacity-30 px-6 py-4 rounded-xl backdrop-blur-sm">
-                <i class="fas fa-info-circle text-eco-blue text-2xl mr-4"></i>
-                <p class="text-lg text-eco-blue">
-                    <span class="font-bold">Note:</span> Our AI-powered carbon accounting platform is currently in development. In the meantime, we offer manual Life Cycle Assessment (LCA) services to help fashion brands assess and reduce their carbon footprint.
-                </p>
-                <a href="#manual-lca" class="ml-8 btn-secondary text-sm px-5 py-2">Learn More</a>
-            </div>
-        </div>
-    </section>
-    
-    <!-- Manual LCA Services Section -->
-    <section id="manual-lca" class="section-padding bg-gradient-to-b from-deep-green to-black">
-        <div class="max-w-7xl mx-auto">
-            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
-                <div class="card">
-                    <h2 class="text-3xl font-bold mb-2"><span class="text-mint-green">Manual LCA Services</span></h2>
-                    <p class="text-lg mb-8 text-softer-white/90">
-                        While our automated platform is in progress, we provide expert-led Life Cycle Assessments to help you:
-                    </p>
-                    
-                    <div class="space-y-6">
-                        <div class="flex items-start">
-                            <div class="w-10 h-10 bg-mint-green/20 rounded-full flex items-center justify-center mr-4 flex-shrink-0">
-                                <i class="fas fa-search text-mint-green"></i>
-                            </div>
-                            <div>
-                                <h3 class="text-xl font-bold">Understand your product's environmental impact</h3>
-                                <p class="text-softer-white/80 mt-2">Detailed analysis from raw materials to disposal</p>
-                            </div>
-                        </div>
-                        
-                        <div class="flex items-start">
-                            <div class="w-10 h-10 bg-mint-green/20 rounded-full flex items-center justify-center mr-4 flex-shrink-0">
-                                <i class="fas fa-chart-line text-mint-green"></i>
-                            </div>
-                            <div>
-                                <h3 class="text-xl font-bold">Identify key areas for carbon reduction</h3>
-                                <p class="text-softer-white/80 mt-2">Actionable insights to lower your emissions</p>
-                            </div>
-                        </div>
-                        
-                        <div class="flex items-start">
-                            <div class="w-10 h-10 bg-mint-green/20 rounded-full flex items-center justify-center mr-4 flex-shrink-0">
-                                <i class="fas fa-file-certificate text-mint-green"></i>
-                            </div>
-                            <div>
-                                <h3 class="text-xl font-bold">Comply with sustainability standards</h3>
-                                <p class="text-softer-white/80 mt-2">GHG Protocol, SBTi, PEF, and industry regulations</p>
-                            </div>
-                        </div>
+                        <h3 class="text-lg font-medium text-gray-900 mb-2">MVP in Development</h3>
+                        <p class="text-gray-600">Core modules for SKU-level emission tracking being built</p>
                     </div>
                     
-                    <a href="#contact" class="btn-secondary mt-10 inline-block">Request LCA Service</a>
+                    <div class="bg-white p-6 rounded-lg shadow-md border border-gray-100">
+                        <div class="flex items-center justify-center h-12 w-12 rounded-md bg-green-100 text-green-600 mb-4">
+                            <i class="fas fa-database text-xl"></i>
+                        </div>
+                        <h3 class="text-lg font-medium text-gray-900 mb-2">Material Database</h3>
+                        <p class="text-gray-600">25+ material types and 4 supply chain stages mapped (EU PEF compliant)</p>
+                    </div>
+                    
+                    <div class="bg-white p-6 rounded-lg shadow-md border border-gray-100">
+                        <div class="flex items-center justify-center h-12 w-12 rounded-md bg-green-100 text-green-600 mb-4">
+                            <i class="fas fa-balance-scale text-xl"></i>
+                        </div>
+                        <h3 class="text-lg font-medium text-gray-900 mb-2">Benchmarked</h3>
+                        <p class="text-gray-600">Against tools like Carbonfact, Higg, and PEF methodologies</p>
+                    </div>
+                    
+                    <div class="bg-white p-6 rounded-lg shadow-md border border-gray-100">
+                        <div class="flex items-center justify-center h-12 w-12 rounded-md bg-green-100 text-green-600 mb-4">
+                            <i class="fas fa-handshake text-xl"></i>
+                        </div>
+                        <h3 class="text-lg font-medium text-gray-900 mb-2">Partnership Talks</h3>
+                        <p class="text-gray-600">In conversation with potential partners & pilot users</p>
+                    </div>
+                    
+                    <div class="bg-white p-6 rounded-lg shadow-md border border-gray-100">
+                        <div class="flex items-center justify-center h-12 w-12 rounded-md bg-green-100 text-green-600 mb-4">
+                            <i class="fas fa-graduation-cap text-xl"></i>
+                        </div>
+                        <h3 class="text-lg font-medium text-gray-900 mb-2">Academic Validation</h3>
+                        <p class="text-gray-600">Methodology peer-reviewed during founder's PhD research</p>
+                    </div>
+                    
+                    <div class="bg-white p-6 rounded-lg shadow-md border border-gray-100">
+                        <div class="flex items-center justify-center h-12 w-12 rounded-md bg-green-100 text-green-600 mb-4">
+                            <i class="fas fa-lightbulb text-xl"></i>
+                        </div>
+                        <h3 class="text-lg font-medium text-gray-900 mb-2">IP Development</h3>
+                        <p class="text-gray-600">Proprietary algorithms for regional emission factors</p>
+                    </div>
                 </div>
-                
-                <div class="flex flex-col justify-center">
-                    <div class="relative border-2 border-mint-green/30 rounded-2xl p-1 overflow-hidden">
-                        <div class="w-full h-full bg-deep-green/80 backdrop-blur p-8 rounded-xl">
-                            <h3 class="text-2xl font-bold mb-6">Why Start With Manual LCA?</h3>
-                            
-                            <div class="space-y-6">
-                                <div class="flex items-start">
-                                    <i class="fas fa-check-circle text-mint-green text-xl mt-1 mr-4"></i>
-                                    <div>
-                                        <h4 class="font-bold">Baseline Understanding</h4>
-                                        <p class="text-softer-white/80 mt-2">Establish accurate emissions measurements before automation</p>
-                                    </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Looking For Section -->
+    <section class="py-12 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="lg:text-center">
+                <h2 class="text-base text-green-600 font-semibold tracking-wide uppercase">What We're Looking For</h2>
+                <p class="mt-2 text-3xl leading-8 font-extrabold tracking-tight text-gray-900 sm:text-4xl">
+                    Join us in shaping sustainable fashion
+                </p>
+            </div>
+
+            <div class="mt-10">
+                <div class="grid grid-cols-1 gap-8 sm:grid-cols-3">
+                    <div class="bg-green-50 p-8 rounded-xl">
+                        <div class="flex items-center justify-center h-16 w-16 rounded-full bg-green-100 text-green-600 mb-6">
+                            <i class="fas fa-user-tie text-2xl"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-900 mb-4">Mentors</h3>
+                        <p class="text-gray-600">Experts in fashion tech, carbon accounting, and SaaS growth to guide our journey.</p>
+                    </div>
+                    
+                    <div class="bg-green-50 p-8 rounded-xl">
+                        <div class="flex items-center justify-center h-16 w-16 rounded-full bg-green-100 text-green-600 mb-6">
+                            <i class="fas fa-tshirt text-2xl"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-900 mb-4">Early Adopters</h3>
+                        <p class="text-gray-600">Brands willing to pilot test our MVP and provide product feedback.</p>
+                    </div>
+                    
+                    <div class="bg-green-50 p-8 rounded-xl">
+                        <div class="flex items-center justify-center h-16 w-16 rounded-full bg-green-100 text-green-600 mb-6">
+                            <i class="fas fa-comments text-2xl"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-900 mb-4">Feedback</h3>
+                        <p class="text-gray-600">From cleantech/ESG startup alumni and compliance experts.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Team Section -->
+    <section id="team" class="py-12 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="lg:text-center">
+                <h2 class="text-base text-green-600 font-semibold tracking-wide uppercase">Team Behind PathCarbon</h2>
+                <p class="mt-2 text-3xl leading-8 font-extrabold tracking-tight text-gray-900 sm:text-4xl">
+                    Combining sustainability expertise with technical excellence
+                </p>
+            </div>
+
+            <div class="mt-16">
+                <!-- Founder -->
+                <div class="bg-white rounded-xl shadow-md overflow-hidden mb-12">
+                    <div class="md:flex">
+                        <div class="md:flex-shrink-0 md:w-1/3 bg-green-50 flex items-center justify-center">
+                            <div class="p-8 text-center">
+                                <div class="h-32 w-32 rounded-full bg-green-100 mx-auto mb-4 flex items-center justify-center">
+                                    <i class="fas fa-user text-4xl text-green-600"></i>
                                 </div>
-                                
-                                <div class="flex items-start">
-                                    <i class="fas fa-check-circle text-mint-green text-xl mt-1 mr-4"></i>
-                                    <div>
-                                        <h4 class="font-bold">Strategy Development</h4>
-                                        <p class="text-softer-white/80 mt-2">Create targeted decarbonization strategies for each product</p>
-                                    </div>
-                                </div>
-                                
-                                <div class="flex items-start">
-                                    <i class="fas fa-check-circle text-mint-green text-xl mt-1 mr-4"></i>
-                                    <div>
-                                        <h4 class="font-bold">Future Integration</h4>
-                                        <p class="text-softer-white/80 mt-2">Smooth transition to automated platform when ready</p>
-                                    </div>
+                                <h3 class="text-xl font-bold text-gray-900">Dr. Mohd Kamil Vakil</h3>
+                                <p class="text-green-600 font-medium">Founder & CEO</p>
+                                <div class="mt-4">
+                                    <a href="https://www.linkedin.com/in/kamilvakil" target="_blank" class="text-green-600 hover:text-green-800">
+                                        <i class="fab fa-linkedin text-xl"></i>
+                                    </a>
                                 </div>
                             </div>
-                            
-                            <div class="mt-10">
-                                <div class="h-24 bg-charcoal rounded-xl flex flex-col items-center justify-center">
-                                    <div class="text-mint-green text-lg font-bold">Get Expert Support Now</div>
-                                    <div class="mt-4 text-eco-blue">
-                                        <i class="fas fa-phone-alt mr-2"></i> <span class="font-mono">+91 827-993-8099</span>
+                        </div>
+                        <div class="p-8 md:w-2/3">
+                            <div class="uppercase tracking-wide text-sm text-green-600 font-semibold">Sustainability Expert</div>
+                            <p class="mt-2 text-gray-600">
+                                PhD in Sustainability & Resource Efficiency | 3+ years with a major EU carbon accounting firm | Deep expertise in LCA, AI, and emissions analytics.
+                            </p>
+                            <div class="mt-6">
+                                <div class="flex items-center">
+                                    <div class="flex-shrink-0 bg-green-100 rounded-md p-2">
+                                        <i class="fas fa-graduation-cap text-green-600"></i>
+                                    </div>
+                                    <div class="ml-4">
+                                        <p class="text-sm font-medium text-gray-900">Academic Credentials</p>
+                                        <p class="text-sm text-gray-500">Peer-reviewed research in sustainable manufacturing</p>
+                                    </div>
+                                </div>
+                                <div class="flex items-center mt-4">
+                                    <div class="flex-shrink-0 bg-green-100 rounded-md p-2">
+                                        <i class="fas fa-briefcase text-green-600"></i>
+                                    </div>
+                                    <div class="ml-4">
+                                        <p class="text-sm font-medium text-gray-900">Industry Experience</p>
+                                        <p class="text-sm text-gray-500">Worked with 50+ brands on carbon footprinting</p>
+                                    </div>
+                                </div>
+                                <div class="flex items-center mt-4">
+                                    <div class="flex-shrink-0 bg-green-100 rounded-md p-2">
+                                        <i class="fas fa-lightbulb text-green-600"></i>
+                                    </div>
+                                    <div class="ml-4">
+                                        <p class="text-sm font-medium text-gray-900">Vision</p>
+                                        <p class="text-sm text-gray-500">Democratizing carbon intelligence for fashion brands</p>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                        
-                        <div class="absolute -top-6 -right-6 w-32 h-32 rounded-full bg-mint-green/20 blur-xl"></div>
-                        <div class="absolute -bottom-6 -left-6 w-40 h-40 rounded-full bg-mint-green/20 blur-xl"></div>
+                    </div>
+                </div>
+                
+                <!-- Team Grid -->
+                <div class="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3">
+                    <!-- Mentor -->
+                    <div class="bg-white rounded-lg shadow-md overflow-hidden">
+                        <div class="p-6">
+                            <div class="flex items-center">
+                                <div class="flex-shrink-0 h-12 w-12 rounded-full bg-green-100 flex items-center justify-center">
+                                    <i class="fas fa-chalkboard-teacher text-green-600"></i>
+                                </div>
+                                <div class="ml-4">
+                                    <h3 class="text-lg font-medium text-gray-900">Dr. Deep Mukherjee</h3>
+                                    <p class="text-green-600 text-sm">Mentor</p>
+                                </div>
+                            </div>
+                            <p class="mt-4 text-gray-600 text-sm">
+                                Faculty, Dept of Economic Sciences, IIT Kanpur | Sustainability and climate change economics expert.
+                            </p>
+                        </div>
+                    </div>
+                    
+                    <!-- Technical Advisor -->
+                    <div class="bg-white rounded-lg shadow-md overflow-hidden">
+                        <div class="p-6">
+                            <div class="flex items-center">
+                                <div class="flex-shrink-0 h-12 w-12 rounded-full bg-green-100 flex items-center justify-center">
+                                    <i class="fas fa-code text-green-600"></i>
+                                </div>
+                                <div class="ml-4">
+                                    <h3 class="text-lg font-medium text-gray-900">Shadab</h3>
+                                    <p class="text-green-600 text-sm">Technical Advisor</p>
+                                </div>
+                            </div>
+                            <p class="mt-4 text-gray-600 text-sm">
+                                Supports architecture and UI/UX design for optimal user experience.
+                            </p>
+                        </div>
+                    </div>
+                    
+                    <!-- Intern -->
+                    <div class="bg-white rounded-lg shadow-md overflow-hidden">
+                        <div class="p-6">
+                            <div class="flex items-center">
+                                <div class="flex-shrink-0 h-12 w-12 rounded-full bg-green-100 flex items-center justify-center">
+                                    <i class="fas fa-server text-green-600"></i>
+                                </div>
+                                <div class="ml-4">
+                                    <h3 class="text-lg font-medium text-gray-900">Ajay</h3>
+                                    <p class="text-green-600 text-sm">Intern</p>
+                                </div>
+                            </div>
+                            <p class="mt-4 text-gray-600 text-sm">
+                                Helps in backend development and emission calculation algorithms.
+                            </p>
+                        </div>
+                    </div>
+                    
+                    <!-- Freelance Developer -->
+                    <div class="bg-white rounded-lg shadow-md overflow-hidden">
+                        <div class="p-6">
+                            <div class="flex items-center">
+                                <div class="flex-shrink-0 h-12 w-12 rounded-full bg-green-100 flex items-center justify-center">
+                                    <i class="fas fa-laptop-code text-green-600"></i>
+                                </div>
+                                <div class="ml-4">
+                                    <h3 class="text-lg font-medium text-gray-900">Aamir</h3>
+                                    <p class="text-green-600 text-sm">Freelance Developer</p>
+                                </div>
+                            </div>
+                            <p class="mt-4 text-gray-600 text-sm">
+                                Frontend development and API integrations.
+                            </p>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
-    
-    <!-- What We Do -->
-    <section id="what-we-do" class="section-padding bg-gradient-to-b from-deep-green to-black">
-        <div class="max-w-7xl mx-auto">
-            <div class="text-center mb-20">
-                <h2 class="text-4xl font-bold">Integrated <span class="text-mint-green">Solutions</span></h2>
-                <p class="text-lg text-softer-white/80 max-w-3xl mx-auto mt-4">
-                    Combining expert manual services with next-generation automation
+
+    <!-- Roadmap Section -->
+    <section class="py-12 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="lg:text-center">
+                <h2 class="text-base text-green-600 font-semibold tracking-wide uppercase">Way Forward</h2>
+                <p class="mt-2 text-3xl leading-8 font-extrabold tracking-tight text-gray-900 sm:text-4xl">
+                    Our Strategic Roadmap
                 </p>
-                <div class="h-1 w-24 bg-mint-green mx-auto mt-6"></div>
             </div>
-            
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <div class="card group">
-                    <div class="w-16 h-16 bg-mint-green/10 flex items-center justify-center rounded-lg mb-6 group-hover:bg-mint-green/20 transition">
-                        <i class="fas fa-cloud text-3xl text-mint-green"></i>
-                    </div>
-                    <h3 class="text-2xl font-bold mb-4">Carbon Footprint Analysis</h3>
-                    <p class="text-softer-white/80">AI-driven Life Cycle Assessment (LCA) models that automate carbon footprint analysis for apparel and footwear brands using verified supply chain data.</p>
-                    <a href="#contact" class="btn-secondary text-sm px-5 py-2 mt-6 inline-block">Request Service</a>
-                </div>
-                
-                <div class="card group">
-                    <div class="w-16 h-16 bg-mint-green/10 flex items-center justify-center rounded-lg mb-6 group-hover:bg-mint-green/20 transition">
-                        <i class="fas fa-robot text-3xl text-mint-green"></i>
-                    </div>
-                    <h3 class="text-2xl font-bold mb-4">AI-Powered Insights</h3>
-                    <p class="text-softer-white/80">Our machine learning algorithms provide actionable decarbonization strategies tailored to your specific products and supply chains.</p>
-                    <a href="#contact" class="btn-secondary text-sm px-5 py-2 mt-6 inline-block">Request Service</a>
-                </div>
-                
-                <div class="card group">
-                    <div class="w-16 h-16 bg-mint-green/10 flex items-center justify-center rounded-lg mb-6 group-hover:bg-mint-green/20 transition">
-                        <i class="fas fa-globe text-3xl text-mint-green"></i>
-                    </div>
-                    <h3 class="text-2xl font-bold mb-4">Compliance Ready</h3>
-                    <p class="text-softer-white/80">Fully compliant with PEF, GHG Protocol, and SBTi frameworks. Automate reporting and meet industry standards effortlessly.</p>
-                    <a href="#contact" class="btn-secondary text-sm px-5 py-2 mt-6 inline-block">Request Service</a>
-                </div>
-            </div>
-        </div>
-    </section>
-    
-    <!-- Platform Development -->
-    <section id="development" class="section-padding bg-black">
-        <div class="max-w-7xl mx-auto">
-            <div class="text-center mb-20">
-                <h2 class="text-4xl font-bold">Platform <span class="text-eco-blue">Development</span> Update</h2>
-                <p class="text-lg text-softer-white/80 max-w-3xl mx-auto mt-4">
-                    Our AI-powered carbon accounting platform is on the horizon!
-                </p>
-                <div class="h-1 w-24 bg-eco-blue mx-auto mt-6"></div>
-            </div>
-            
-            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+
+            <div class="mt-10">
                 <div class="relative">
-                    <div class="absolute -top-10 -left-10 w-64 h-64 rounded-full bg-eco-blue/10 blur-xl"></div>
-                    <div class="relative bg-charcoal p-1 rounded-2xl">
-                        <div class="relative w-full h-96 rounded-xl overflow-hidden flex items-center justify-center">
-                            <div class="absolute w-full h-full bg-gradient-to-tr from-deep-green/50 to-eco-blue/20 backdrop-blur-sm"></div>
-                            
-                            <div class="relative w-72 h-72 rounded-full border-2 border-eco-blue/50 flex items-center justify-center">
-                                <div class="w-56 h-56 rounded-full border-2 border-eco-blue/50 flex items-center justify-center">
-                                    <div class="w-40 h-40 rounded-full bg-eco-blue/10 flex items-center justify-center">
-                                        <i class="fas fa-microchip text-6xl text-eco-blue"></i>
-                                    </div>
-                                </div>
-                            </div>
-                            
-                            <div class="absolute top-4 right-4 bg-charcoal/80 backdrop-blur py-2 px-4 rounded-full text-eco-blue">
-                                <i class="fas fa-code-branch mr-2"></i> Developer Preview
-                            </div>
-                            
-                            <div class="absolute bottom-6 left-0 right-0 px-8">
-                                <div class="text-center text-eco-blue font-bold text-lg mb-2">Platform Progress</div>
-                                <div class="platform-progress bg-charcoal w-full">
-                                    <div class="progress-bar bg-eco-blue"></div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                
-                <div>
-                    <h3 class="text-2xl font-bold mb-6">Our Next-Generation Carbon Intelligence Platform</h3>
-                    <p class="text-lg text-softer-white/90 mb-6">We're working diligently to bring you a seamless, automated solution for tracking and reducing your fashion brand's carbon footprint.</p>
+                    <!-- Timeline line -->
+                    <div class="hidden sm:block absolute h-full w-0.5 bg-green-200 left-1/2 transform -translate-x-1/2"></div>
                     
-                    <div class="space-y-4">
-                        <div class="flex items-start">
-                            <i class="fas fa-rocket text-eco-blue text-xl mt-1 mr-4"></i>
-                            <div>
-                                <h4 class="font-bold">Beta Testing Opportunities</h4>
-                                <p class="text-softer-white/80 mt-2">Be among the first to experience our AI-powered platform</p>
+                    <!-- Timeline items -->
+                    <div class="space-y-12">
+                        <!-- Q3 2025 -->
+                        <div class="relative flex flex-col sm:flex-row items-center">
+                            <div class="flex-1 sm:pr-8 sm:text-right order-1 sm:order-none">
+                                <h3 class="text-lg font-medium text-gray-900">Q3 2025</h3>
+                                <p class="text-gray-600">Finalize MVP with core functionality</p>
+                            </div>
+                            <div class="flex-shrink-0 mx-4 my-4 sm:my-0 order-0 sm:order-none">
+                                <div class="h-8 w-8 rounded-full bg-green-600 flex items-center justify-center text-white">
+                                    <i class="fas fa-flag-checkered"></i>
+                                </div>
+                            </div>
+                            <div class="flex-1 sm:pl-8 sm:text-left order-2 sm:order-none">
+                                <div class="bg-green-50 p-4 rounded-lg">
+                                    <p class="text-green-700">Core modules for SKU-level tracking completed</p>
+                                </div>
                             </div>
                         </div>
                         
-                        <div class="flex items-start">
-                            <i class="fas fa-bell text-eco-blue text-xl mt-1 mr-4"></i>
-                            <div>
-                                <h4 class="font-bold">Get Platform Updates</h4>
-                                <p class="text-softer-white/80 mt-2">Stay informed about our development milestones</p>
+                        <!-- Q4 2025 -->
+                        <div class="relative flex flex-col sm:flex-row items-center">
+                            <div class="flex-1 sm:pr-8 sm:text-right order-1 sm:order-none">
+                                <h3 class="text-lg font-medium text-gray-900">Q4 2025</h3>
+                                <p class="text-gray-600">Pilot with 3-5 D2C and export brands</p>
+                            </div>
+                            <div class="flex-shrink-0 mx-4 my-4 sm:my-0 order-0 sm:order-none">
+                                <div class="h-8 w-8 rounded-full bg-green-600 flex items-center justify-center text-white">
+                                    <i class="fas fa-rocket"></i>
+                                </div>
+                            </div>
+                            <div class="flex-1 sm:pl-8 sm:text-left order-2 sm:order-none">
+                                <div class="bg-green-50 p-4 rounded-lg">
+                                    <p class="text-green-700">Validate product-market fit and gather feedback</p>
+                                </div>
                             </div>
                         </div>
                         
-                        <div class="flex items-start">
-                            <i class="fas fa-lightbulb text-eco-blue text-xl mt-1 mr-4"></i>
-                            <div>
-                                <h4 class="font-bold">Shape the Future</h4>
-                                <p class="text-softer-white/80 mt-2">Provide input on features that matter to you</p>
+                        <!-- Q1 2026 -->
+                        <div class="relative flex flex-col sm:flex-row items-center">
+                            <div class="flex-1 sm:pr-8 sm:text-right order-1 sm:order-none">
+                                <h3 class="text-lg font-medium text-gray-900">Q1 2026</h3>
+                                <p class="text-gray-600">Apply for climate-tech grants & incubation</p>
+                            </div>
+                            <div class="flex-shrink-0 mx-4 my-4 sm:my-0 order-0 sm:order-none">
+                                <div class="h-8 w-8 rounded-full bg-green-600 flex items-center justify-center text-white">
+                                    <i class="fas fa-hand-holding-usd"></i>
+                                </div>
+                            </div>
+                            <div class="flex-1 sm:pl-8 sm:text-left order-2 sm:order-none">
+                                <div class="bg-green-50 p-4 rounded-lg">
+                                    <p class="text-green-700">Secure non-dilutive funding for scaling</p>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    
-                    <div class="mt-10">
-                        <div class="bg-charcoal/50 backdrop-blur border border-eco-blue/20 rounded-xl p-6">
-                            <h4 class="font-bold text-eco-blue mb-4">Join Our Development Program</h4>
-                            <p class="mb-4">Get early access and exclusive benefits by joining our platform development program.</p>
-                            <a href="#contact" class="inline-block text-eco-blue hover:underline font-semibold">
-                                Join Waitlist <i class="fas fa-arrow-right ml-1"></i>
-                            </a>
+                        
+                        <!-- Early 2026 -->
+                        <div class="relative flex flex-col sm:flex-row items-center">
+                            <div class="flex-1 sm:pr-8 sm:text-right order-1 sm:order-none">
+                                <h3 class="text-lg font-medium text-gray-900">Early 2026</h3>
+                                <p class="text-gray-600">Launch full version with 100+ materials</p>
+                            </div>
+                            <div class="flex-shrink-0 mx-4 my-4 sm:my-0 order-0 sm:order-none">
+                                <div class="h-8 w-8 rounded-full bg-green-600 flex items-center justify-center text-white">
+                                    <i class="fas fa-trophy"></i>
+                                </div>
+                            </div>
+                            <div class="flex-1 sm:pl-8 sm:text-left order-2 sm:order-none">
+                                <div class="bg-green-50 p-4 rounded-lg">
+                                    <p class="text-green-700">Scalable database covering regional emission factors</p>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
-    
-    <!-- For Whom -->
-    <section id="for-whom" class="section-padding bg-deep-green">
-        <div class="max-w-7xl mx-auto">
-            <div class="text-center mb-20">
-                <h2 class="text-4xl font-bold">Designed for <span class="text-mint-green">Sustainability Leaders</span></h2>
-                <p class="text-xl mt-4 text-softer-white/80 max-w-3xl mx-auto">PathCarbon empowers professionals at every level of the fashion industry to make data-driven sustainability decisions.</p>
-            </div>
-            
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-6">
-                <div class="card text-center group">
-                    <div class="w-20 h-20 bg-mint-green/10 rounded-full flex items-center justify-center mx-auto mb-6 group-hover:bg-mint-green/20 transition">
-                        <i class="fas fa-tshirt text-3xl text-mint-green"></i>
-                    </div>
-                    <h3 class="text-xl font-semibold">Fashion Brands</h3>
-                </div>
-                
-                <div class="card text-center group">
-                    <div class="w-20 h-20 bg-mint-green/10 rounded-full flex items-center justify-center mx-auto mb-6 group-hover:bg-mint-green/20 transition">
-                        <i class="fas fa-chart-line text-3xl text-mint-green"></i>
-                    </div>
-                    <h3 class="text-xl font-semibold">ESG Leaders</h3>
-                </div>
-                
-                <div class="card text-center group">
-                    <div class="w-20 h-20 bg-mint-green/10 rounded-full flex items-center justify-center mx-auto mb-6 group-hover:bg-mint-green/20 transition">
-                        <i class="fas fa-ruler-combined text-3xl text-mint-green"></i>
-                    </div>
-                    <h3 class="text-xl font-semibold">Product Designers</h3>
-                </div>
-                
-                <div class="card text-center group">
-                    <div class="w-20 h-20 bg-mint-green/10 rounded-full flex items-center justify-center mx-auto mb-6 group-hover:bg-mint-green/20 transition">
-                        <i class="fas fa-file-contract text-3xl text-mint-green"></i>
-                    </div>
-                    <h3 class="text-xl font-semibold">Compliance Teams</h3>
-                </div>
-                
-                <div class="card text-center group">
-                    <div class="w-20 h-20 bg-mint-green/10 rounded-full flex items-center justify-center mx-auto mb-6 group-hover:bg-mint-green/20 transition">
-                        <i class="fas fa-hands-helping text-3xl text-mint-green"></i>
-                    </div>
-                    <h3 class="text-xl font-semibold">Sustainability Consultants</h3>
-                </div>
-            </div>
-        </div>
-    </section>
-    
-    <!-- How It Works -->
-    <section id="how-it-works" class="section-padding relative bg-gradient-to-b from-black to-deep-green">
-        <div class="max-w-7xl mx-auto">
-            <div class="text-center mb-20">
-                <h2 class="text-4xl font-bold">Supply Chain <span class="text-mint-green">Decarbonization</span></h2>
-                <p class="text-xl mt-4 text-softer-white/80 max-w-3xl mx-auto">Our technology integrates region-specific activity data with verified emission inventories.</p>
-            </div>
-            
-            <div class="relative">
-                <div class="hidden lg:block absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
-                    <div class="bg-mint-green/20 w-96 h-96 rounded-full blur-3xl"></div>
-                </div>
-                
-                <div class="grid grid-cols-1 lg:grid-cols-4 gap-8 relative z-10">
-                    <!-- Stage 1 -->
-                    <div class="card group text-center">
-                        <div class="text-5xl text-mint-green mb-4">01</div>
-                        <div class="w-20 h-20 bg-mint-green/10 rounded-full flex items-center justify-center mx-auto mb-6 group-hover:bg-mint-green/20 transition">
-                            <i class="fas fa-seedling text-3xl text-mint-green"></i>
-                        </div>
-                        <h3 class="text-2xl font-bold mb-4">Fibre Production</h3>
-                        <p class="text-softer-white/80">Raw material extraction, agriculture, and synthetic fibre production analysis.</p>
-                    </div>
-                    
-                    <!-- Stage 2 -->
-                    <div class="card group text-center">
-                        <div class="text-5xl text-mint-green mb-4">02</div>
-                        <div class="w-20 h-20 bg-mint-green/10 rounded-full flex items-center justify-center mx-auto mb-6 group-hover:bg-mint-green/20 transition">
-                            <i class="fas fa-stream text-3xl text-mint-green"></i>
-                        </div>
-                        <h3 class="text-2xl font-bold mb-4">Yarn Processing</h3>
-                        <p class="text-softer-white/80">Spinning, texturing, and yarn manufacturing processes energy and emissions.</p>
-                    </div>
-                    
-                    <!-- Stage 3 -->
-                    <div class="card group text-center">
-                        <div class="text-5xl text-mint-green mb-4">03</div>
-                        <div class="w-20 h-20 bg-mint-green/10 rounded-full flex items-center justify-center mx-auto mb-6 group-hover:bg-mint-green/20 transition">
-                            <i class="fas fa-cut text-3xl text-mint-green"></i>
-                        </div>
-                        <h3 class="text-2xl font-bold mb-4">Fabric Production</h3>
-                        <p class="text-softer-white/80">Weaving, knitting, dyeing, printing, and finishing emissions calculation.</p>
-                    </div>
-                    
-                    <!-- Stage 4 -->
-                    <div class="card group text-center">
-                        <div class="text-5xl text-mint-green mb-4">04</div>
-                        <div class="w-20 h-20 bg-mint-green/10 rounded-full flex items-center justify-center mx-auto mb-6 group-hover:bg-mint-green/20 transition">
-                            <i class="fas fa-tshirt text-3xl text-mint-green"></i>
-                        </div>
-                        <h3 class="text-2xl font-bold mb-4">Garment Assembly</h3>
-                        <p class="text-softer-white/80">Cutting, sewing, quality control, and packaging energy analysis.</p>
-                    </div>
-                </div>
-                
-                <!-- Tech Badges -->
-                <div class="flex flex-wrap justify-center mt-16 gap-4">
-                    <div class="bg-mint-green/10 px-6 py-3 rounded-full flex items-center">
-                        <i class="fas fa-database text-mint-green mr-2"></i>
-                        <span>ecoinvent Data</span>
-                    </div>
-                    <div class="bg-mint-green/10 px-6 py-3 rounded-full flex items-center">
-                        <i class="fas fa-brain text-mint-green mr-2"></i>
-                        <span>Machine Learning</span>
-                    </div>
-                    <div class="bg-mint-green/10 px-6 py-3 rounded-full flex items-center">
-                        <i class="fas fa-cogs text-mint-green mr-2"></i>
-                        <span>Automated LCA</span>
-                    </div>
-                    <div class="bg-mint-green/10 px-6 py-3 rounded-full flex items-center">
-                        <i class="fas fa-globe-europe text-mint-green mr-2"></i>
-                        <span>Global Emission Factors</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    
-    <!-- Founder Section -->
-    <section id="founder" class="section-padding bg-black">
-        <div class="max-w-7xl mx-auto">
-            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-                <div class="relative">
-                    <div class="relative overflow-hidden rounded-2xl bg-mint-green/10 p-1">
-                        <div class="bg-gray-200 border-2 border-dashed rounded-xl w-full h-96"></div>
-                        <div class="absolute bottom-4 left-4 bg-mint-green/90 backdrop-blur px-6 py-4 rounded-xl max-w-md">
-                            <p class="text-sm italic text-softer-white">"Sustainability isn't just about measuring footprints - it's about creating pathways to transformation."</p>
-                        </div>
-                    </div>
-                    
-                    <div class="absolute -top-4 -right-4 bg-charcoal p-4 rounded-full border-4 border-deep-green">
-                        <div class="bg-mint-green/10 w-16 h-16 rounded-full flex items-center justify-center">
-                            <i class="fas fa-graduation-cap text-2xl text-mint-green"></i>
-                        </div>
-                    </div>
-                </div>
-                
-                <div>
-                    <h2 class="text-4xl font-bold mb-6">Meet Our <span class="text-mint-green">Founder</span></h2>
-                    <p class="text-lg text-softer-white/90 mb-6">PathCarbon was founded by Kamil, a Researcher and Life Cycle Assessment expert with a PhD in productivity and climate sustainability.</p>
-                    <p class="text-lg text-softer-white/90 mb-6">With deep industry experience and a sharp eye on real-world impact, the PathCarbon team blend scientific rigor, strategic thinking, and cutting-edge software to provide practical decarbonization pathways.</p>
-                    
-                    <div class="flex flex-wrap gap-4">
-                        <div class="flex items-center space-x-2">
-                            <div class="bg-mint-green/10 p-2 rounded-lg">
-                                <i class="fas fa-book text-mint-green"></i>
-                            </div>
-                            <span>PhD Sustainability</span>
-                        </div>
-                        <div class="flex items-center space-x-2">
-                            <div class="bg-mint-green/10 p-2 rounded-lg">
-                                <i class="fas fa-medal text-mint-green"></i>
-                            </div>
-                            <span>LCA Expert</span>
-                        </div>
-                        <div class="flex items-center space-x-2">
-                            <div class="bg-mint-green/10 p-2 rounded-lg">
-                                <i class="fas fa-industry text-mint-green"></i>
-                            </div>
-                            <span>Industry Experience</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    
+
     <!-- Contact Section -->
-    <section id="contact" class="section-padding bg-deep-green relative overflow-hidden">
-        <div class="max-w-7xl mx-auto relative z-10">
-            <div class="grid grid-cols-1 lg:grid-cols-2 gap-16">
-                <div>
-                    <h2 class="text-4xl font-bold mb-6">Ready to <span class="text-mint-green">Decarbonize</span> Fashion?</h2>
-                    <p class="text-xl text-softer-white/80 mb-10">Discover how PathCarbon can help your brand achieve measurable sustainability goals and compliance.</p>
-                    
-                    <div class="flex items-start space-x-4 mb-8">
-                        <div class="bg-mint-green/10 p-4 rounded-lg">
-                            <i class="fas fa-envelope text-2xl text-mint-green"></i>
-                        </div>
-                        <div>
-                            <h3 class="text-xl font-semibold">Email Us</h3>
-                            <p class="text-lg text-mint-green">kamil.iitk@gmail.com</p>
-                        </div>
+    <section id="contact" class="py-16 bg-green-700 text-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="lg:text-center">
+                <h2 class="text-base text-green-300 font-semibold tracking-wide uppercase">Contact Us</h2>
+                <p class="mt-2 text-3xl leading-8 font-extrabold tracking-tight sm:text-4xl">
+                    Join us in shaping the future of sustainable fashion
+                </p>
+            </div>
+
+            <div class="mt-12 grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3">
+                <div class="text-center">
+                    <div class="flex items-center justify-center h-12 w-12 rounded-md bg-green-600 text-white mx-auto">
+                        <i class="fas fa-envelope text-xl"></i>
                     </div>
-                    
-                    <div class="bg-charcoal/50 border border-mint-green/20 p-6 rounded-xl">
-                        <h3 class="text-xl font-semibold mb-4">Let's plan a webinar on</h3>
-                        <p class="mb-4">"The Future of Sustainable Fashion Technology"</p>
-                        <a href="#" class="inline-block text-mint-green hover:underline">Register now <i class="fas fa-arrow-right ml-1"></i></a>
-                    </div>
+                    <h3 class="mt-4 text-lg font-medium">Email</h3>
+                    <p class="mt-2 text-green-200">
+                        <a href="mailto:ceo@pathcarbon.com" class="hover:text-white">ceo@pathcarbon.com</a>
+                    </p>
                 </div>
                 
-                <div class="card">
-                    <h3 class="text-2xl font-bold mb-8">Send us a message</h3>
-                    <form id="contactForm">
-                        <div class="mb-6">
-                            <label for="name" class="block mb-2">Full Name *</label>
-                            <input type="text" id="name" class="w-full bg-deep-green border border-charcoal rounded-lg px-4 py-3 focus:border-mint-green focus:outline-none transition" required>
-                        </div>
-                        <div class="mb-6">
-                            <label for="email" class="block mb-2">Email Address *</label>
-                            <input type="email" id="email" class="w-full bg-deep-green border border-charcoal rounded-lg px-4 py-3 focus:border-mint-green focus:outline-none transition" required>
-                        </div>
-                        <div class="mb-6">
-                            <label for="company" class="block mb-2">Company</label>
-                            <input type="text" id="company" class="w-full bg-deep-green border border-charcoal rounded-lg px-4 py-3 focus:border-mint-green focus:outline-none transition">
-                        </div>
-                        <div class="mb-6">
-                            <label for="service" class="block mb-2">Service Interest *</label>
-                            <select id="service" class="w-full bg-deep-green border border-charcoal rounded-lg px-4 py-3 focus:border-mint-green focus:outline-none transition" required>
-                                <option value="" disabled selected>Select service</option>
-                                <option value="lca">Manual LCA Service</option>
-                                <option value="platform">Platform Updates / Beta Testing</option>
-                                <option value="general">General Inquiry</option>
-                            </select>
-                        </div>
-                        <div class="mb-6">
-                            <label for="message" class="block mb-2">Message</label>
-                            <textarea id="message" rows="4" class="w-full bg-deep-green border border-charcoal rounded-lg px-4 py-3 focus:border-mint-green focus:outline-none transition"></textarea>
-                        </div>
-                        <button type="submit" class="w-full btn-primary">Request Consultation</button>
-                    </form>
+                <div class="text-center">
+                    <div class="flex items-center justify-center h-12 w-12 rounded-md bg-green-600 text-white mx-auto">
+                        <i class="fas fa-globe text-xl"></i>
+                    </div>
+                    <h3 class="mt-4 text-lg font-medium">Website</h3>
+                    <p class="mt-2 text-green-200">
+                        <a href="https://www.pathcarbon.com" target="_blank" class="hover:text-white">www.pathcarbon.com</a>
+                    </p>
+                </div>
+                
+                <div class="text-center">
+                    <div class="flex items-center justify-center h-12 w-12 rounded-md bg-green-600 text-white mx-auto">
+                        <i class="fab fa-linkedin-in text-xl"></i>
+                    </div>
+                    <h3 class="mt-4 text-lg font-medium">LinkedIn</h3>
+                    <p class="mt-2 text-green-200">
+                        <a href="https://linkedin.com/in/kamilvakil" target="_blank" class="hover:text-white">linkedin.com/in/kamilvakil</a>
+                    </p>
                 </div>
             </div>
+            
+            <div class="mt-12 text-center">
+                <a href="mailto:ceo@pathcarbon.com" class="inline-flex items-center justify-center px-6 py-3 border border-transparent text-base font-medium rounded-md text-green-700 bg-white hover:bg-gray-50">
+                    Get in Touch
+                </a>
+            </div>
         </div>
-        
-        <div class="absolute -bottom-1/3 -right-1/3 w-96 h-96 rounded-full bg-mint-green/10 blur-3xl"></div>
-        <div class="absolute -top-1/3 -left-1/3 w-96 h-96 rounded-full bg-mint-green/5 blur-3xl"></div>
     </section>
-    
+
     <!-- Footer -->
-    <footer class="py-12 border-t border-charcoal/30">
-        <div class="max-w-7xl mx-auto px-4">
+    <footer class="bg-gray-900 text-white py-8">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex flex-col md:flex-row justify-between items-center">
-                <div class="flex items-center space-x-3 mb-6 md:mb-0">
-                    <div class="relative">
-                        <div class="absolute w-10 h-10 bg-mint-green rounded-full opacity-20"></div>
-                        <svg class="relative w-10 h-10" viewBox="0 0 100 100">
-                            <path d="M50 15 C70 25, 85 50, 50 85 C15 50, 30 25, 50 15 Z" stroke="#a5d6a7" fill="none" stroke-width="3"/>
-                        </svg>
-                    </div>
-                    <span class="text-xl font-bold bg-gradient-to-r from-mint-green to-emerald-300 bg-clip-text text-transparent">Path<span class="text-softer-white">Carbon</span></span>
+                <div class="flex items-center">
+                    <span class="text-xl font-semibold">PathCarbon</span>
                 </div>
-                
-                <div class="text-sm text-softer-white/60 text-center">
-                    &copy; 2025 PathCarbon. All rights reserved.<br>
-                    Carbon Intelligence for Fashion's Future
+                <div class="mt-4 md:mt-0">
+                    <p class="text-gray-400 text-sm">
+                        &copy; 2023 PathCarbon. All rights reserved.
+                    </p>
                 </div>
-                
-                <div class="flex space-x-4 mt-6 md:mt-0">
-                    <a href="#" class="text-softer-white/70 hover:text-mint-green transition">
-                        <i class="fab fa-linkedin-in"></i>
-                    </a>
-                    <a href="#" class="text-softer-white/70 hover:text-mint-green transition">
+                <div class="mt-4 md:mt-0 flex space-x-6">
+                    <a href="#" class="text-gray-400 hover:text-white">
                         <i class="fab fa-twitter"></i>
                     </a>
-                    <a href="#" class="text-softer-white/70 hover:text-mint-green transition">
-                        <i class="fab fa-instagram"></i>
+                    <a href="#" class="text-gray-400 hover:text-white">
+                        <i class="fab fa-linkedin"></i>
+                    </a>
+                    <a href="#" class="text-gray-400 hover:text-white">
+                        <i class="fab fa-github"></i>
                     </a>
                 </div>
             </div>
         </div>
     </footer>
-    
+
     <script>
         // Mobile menu toggle
-        const mobileMenuButton = document.getElementById('mobile-menu-button');
-        const mobileMenu = document.getElementById('mobile-menu');
-        
-        mobileMenuButton.addEventListener('click', () => {
-            mobileMenu.classList.toggle('hidden');
-            mobileMenu.classList.toggle('animate-fadeIn');
+        document.getElementById('mobile-menu-button').addEventListener('click', function() {
+            const menu = document.getElementById('mobile-menu');
+            if (menu.classList.contains('hidden')) {
+                menu.classList.remove('hidden');
+                menu.classList.add('block');
+            } else {
+                menu.classList.remove('block');
+                menu.classList.add('hidden');
+            }
         });
-        
-        // Close mobile menu when clicking links
-        const mobileLinks = mobileMenu.querySelectorAll('a');
-        mobileLinks.forEach(link => {
-            link.addEventListener('click', () => {
-                mobileMenu.classList.add('hidden');
-            });
-        });
-        
-        // Form submission handling
-        const contactForm = document.getElementById('contactForm');
-        if (contactForm) {
-            contactForm.addEventListener('submit', (e) => {
+
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
                 e.preventDefault();
                 
-                // Get form values
-                const name = document.getElementById('name').value;
-                const service = document.getElementById('service').value;
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
                 
-                let message = "Thank you";
-                if (service === "lca") {
-                    message = "Thank you, " + name + "! Our LCA team will contact you shortly to discuss your manual Life Cycle Assessment needs.";
-                } else if (service === "platform") {
-                    message = "Thank you, " + name + "! We'll add you to our platform updates list and inform you about beta testing opportunities.";
+                if (targetElement) {
+                    targetElement.scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                    
+                    // Close mobile menu if open
+                    const mobileMenu = document.getElementById('mobile-menu');
+                    if (!mobileMenu.classList.contains('hidden')) {
+                        mobileMenu.classList.add('hidden');
+                        mobileMenu.classList.remove('block');
+                    }
+                }
+            });
+        });
+
+        // Gemini API Integration: PathCarbon Storyteller
+        document.getElementById('generateStoryBtn').addEventListener('click', async () => {
+            const productInput = document.getElementById('productInput').value;
+            const storyOutput = document.getElementById('storyOutput');
+            const loadingIndicator = document.getElementById('loadingIndicator');
+            const errorOutput = document.getElementById('errorOutput');
+
+            storyOutput.textContent = ''; // Clear previous output
+            storyOutput.classList.add('hidden'); // Hide output
+            errorOutput.textContent = ''; // Clear previous errors
+            errorOutput.classList.add('hidden'); // Hide error message
+
+            if (!productInput.trim()) {
+                errorOutput.textContent = 'Please describe your product to generate insights.';
+                errorOutput.classList.remove('hidden');
+                return;
+            }
+
+            loadingIndicator.classList.remove('hidden'); // Show loading indicator
+
+            try {
+                let chatHistory = [];
+                const prompt = `Given the following apparel or footwear product description, provide:
+1.  **Key Sustainability Ideas:** Suggest 3-5 core sustainable aspects or features for this product.
+2.  **Associated Average Environmental Footprints:** Provide estimated average carbon footprint (in kg CO2e) and water use (in liters) for a similar product, clearly stating that these are averages and can vary.
+3.  **Ways to Reduce Footprint:** List 3-5 actionable strategies to reduce the carbon footprint and water use of this type of product.
+
+Format your response clearly with headings for each section.
+
+Product Description: ${productInput}
+
+Response:`;
+
+                chatHistory.push({ role: "user", parts: [{ text: prompt }] });
+                const payload = { contents: chatHistory };
+                const apiKey = ""; // Canvas will automatically provide the API key at runtime.
+                const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=${apiKey}`;
+
+                const response = await fetch(apiUrl, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(payload)
+                });
+
+                if (!response.ok) {
+                    const errorData = await response.json();
+                    throw new Error(`API error: ${response.status} ${response.statusText} - ${errorData.error.message}`);
+                }
+
+                const result = await response.json();
+
+                if (result.candidates && result.candidates.length > 0 &&
+                    result.candidates[0].content && result.candidates[0].content.parts &&
+                    result.candidates[0].content[0].parts.length > 0) {
+                    const text = result.candidates[0].content.parts[0].text;
+                    storyOutput.textContent = text;
+                    storyOutput.classList.remove('hidden'); // Show output
                 } else {
-                    message = "Thank you for contacting PathCarbon, " + name + "! We'll respond to your inquiry within 1-2 business days.";
+                    storyOutput.textContent = 'Could not generate insights. Please try again with different details.';
+                    storyOutput.classList.remove('hidden');
                 }
-                
-                alert(message);
-                contactForm.reset();
-            });
-        }
-        
-        // Observers for scroll animations
-        const observerOptions = {
-            root: null,
-            rootMargin: '0px',
-            threshold: 0.1
-        };
-        
-        const observer = new IntersectionObserver((entries, observer) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('animate-fadeIn', 'opacity-100');
-                    observer.unobserve(entry.target);
-                }
-            });
-        }, observerOptions);
-        
-        // Observe all sections
-        document.querySelectorAll('section').forEach(section => {
-            section.classList.add('opacity-0', 'transition-opacity', 'duration-1000');
-            observer.observe(section);
+            } catch (error) {
+                console.error('Error generating sustainability insights:', error);
+                errorOutput.textContent = `Failed to generate insights: ${error.message}. Please try again.`;
+                errorOutput.classList.remove('hidden');
+            } finally {
+                loadingIndicator.classList.add('hidden'); // Hide loading indicator
+            }
         });
     </script>
 </body>
