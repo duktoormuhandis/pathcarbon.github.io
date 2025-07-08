@@ -299,8 +299,10 @@
                     <div class="pt-6 card-hover transition-all duration-300 ease-in-out">
                         <div class="flow-root bg-white rounded-lg px-6 pb-8 h-full shadow-md">
                             <div class="-mt-6">
-                                <div class="flex items-center justify-center h-12 w-12 rounded-md bg-green-500 text-white mx-auto">
-                                    <span class="text-xl">1</span>
+                                <div>
+                                    <span class="inline-flex items-center justify-center p-3 bg-green-500 rounded-md shadow-lg">
+                                        <span class="text-xl">1</span>
+                                    </span>
                                 </div>
                                 <h3 class="mt-8 text-lg font-medium text-gray-900 tracking-tight">Input Product Data</h3>
                                 <p class="mt-5 text-base text-gray-500">
@@ -311,10 +313,12 @@
                     </div>
 
                     <div class="pt-6 card-hover transition-all duration-300 ease-in-out">
-                        <div class="flow-root bg-white rounded-lg px-6 pb-8 h-full shadow-md">
+                        <div class="flow-root bg-white rounded-lg px-6 pb-8 h-full">
                             <div class="-mt-6">
-                                <div class="flex items-center justify-center h-12 w-12 rounded-md bg-green-500 text-white mx-auto">
-                                    <span class="text-xl">2</span>
+                                <div>
+                                    <span class="inline-flex items-center justify-center p-3 bg-green-500 rounded-md shadow-lg">
+                                        <span class="text-xl">2</span>
+                                    </span>
                                 </div>
                                 <h3 class="mt-8 text-lg font-medium text-gray-900 tracking-tight">Supply Chain Modeling</h3>
                                 <p class="mt-5 text-base text-gray-500">
@@ -325,10 +329,12 @@
                     </div>
 
                     <div class="pt-6 card-hover transition-all duration-300 ease-in-out">
-                        <div class="flow-root bg-white rounded-lg px-6 pb-8 h-full shadow-md">
+                        <div class="flow-root bg-white rounded-lg px-6 pb-8 h-full">
                             <div class="-mt-6">
-                                <div class="flex items-center justify-center h-12 w-12 rounded-md bg-green-500 text-white mx-auto">
-                                    <span class="text-xl">3</span>
+                                <div>
+                                    <span class="inline-flex items-center justify-center p-3 bg-green-500 rounded-md shadow-lg">
+                                        <span class="text-xl">3</span>
+                                    </span>
                                 </div>
                                 <h3 class="mt-8 text-lg font-medium text-gray-900 tracking-tight">Auto-Calculated Footprint</h3>
                                 <p class="mt-5 text-base text-gray-500">
@@ -339,10 +345,12 @@
                     </div>
 
                     <div class="pt-6 card-hover transition-all duration-300 ease-in-out">
-                        <div class="flow-root bg-white rounded-lg px-6 pb-8 h-full shadow-md">
+                        <div class="flow-root bg-white rounded-lg px-6 pb-8 h-full">
                             <div class="-mt-6">
-                                <div class="flex items-center justify-center h-12 w-12 rounded-md bg-green-500 text-white mx-auto">
-                                    <span class="text-xl">4</span>
+                                <div>
+                                    <span class="inline-flex items-center justify-center p-3 bg-green-500 rounded-md shadow-lg">
+                                        <span class="text-xl">4</span>
+                                    </span>
                                 </div>
                                 <h3 class="mt-8 text-lg font-medium text-gray-900 tracking-tight">Dashboard & Reports</h3>
                                 <p class="mt-5 text-base text-gray-500">
@@ -547,7 +555,7 @@
                     </div>
                     
                     <div class="bg-white p-6 rounded-lg shadow-md border border-gray-100">
-                        <div class="flex items-center justify-center h-12 w-12 rounded-md bg-green-100 text-green-600 mb-4">
+                        <div class="flex items-center justify-center h-12 w-12 rounded-full bg-green-100 flex items-center justify-center">
                             <i class="fas fa-graduation-cap text-xl"></i>
                         </div>
                         <h3 class="text-lg font-medium text-gray-900 mb-2">Academic Validation</h3>
@@ -1074,7 +1082,10 @@ Response:`;
 
                 chatHistory.push({ role: "user", parts: [{ text: prompt }] });
                 const payload = { contents: chatHistory };
-                const apiKey = ""; // Canvas will automatically provide the API key at runtime.
+                // IMPORTANT: If deploying this code to your own website, replace the empty string below
+                // with your actual Gemini API key obtained from Google AI Studio.
+                // Example: const apiKey = "YOUR_GEMINI_API_KEY";
+                const apiKey = "AIzaSyATV2OYGxDjkvqvpVDPfLbAZ1zcYXyYrps"; 
                 const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=${apiKey}`;
 
                 const response = await fetch(apiUrl, {
