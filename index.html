@@ -981,7 +981,7 @@
                 </div>
                 <div class="mt-4 md:mt-0">
                     <p class="text-gray-400 text-sm">
-                        &copy; 2023 PathCarbon. All rights reserved.
+                        &copy; 2025 PathCarbon. All rights reserved.
                     </p>
                 </div>
                 <div class="mt-4 md:mt-0 flex space-x-6">
@@ -1001,7 +1001,7 @@
 
     <!-- Floating Action Button (FAB) -->
     <button id="openStorytellerFab" class="fab-button">
-        <i class="fas fa-magic mr-2"></i> PathCarbon Storyteller
+        <i class="fas fa-magic mr-2"></i> PathChat
     </button>
 
     <!-- PathCarbon Storyteller Modal -->
@@ -1010,7 +1010,6 @@
             <button class="modal-close-btn" id="closeStorytellerModal">&times;</button>
             <h2 class="text-2xl font-bold text-gray-900 mb-4 text-center">PathCarbon Storyteller ✨</h2>
             <p class="text-md text-gray-600 mb-6 text-center">
-                Get sustainability ideas, average footprints, water use, and reduction strategies for your apparel and footwear products.
             </p>
 
             <label for="productInput" class="block text-left text-lg font-medium text-gray-700 mb-3">Describe your apparel or footwear product:</label>
@@ -1019,7 +1018,7 @@
                 <i class="fas fa-magic mr-2"></i> Generate Sustainability Insights
             </button>
             <div id="loadingIndicator" class="hidden mt-4 text-green-600 font-medium">
-                <i class="fas fa-spinner mr-2"></i> Generating your insights...
+                <i class="fas fa-spinner mr-2"></i> Wait after entering..
             </div>
             <div id="storyOutput" class="mt-6 p-4 bg-green-100 border border-green-200 rounded-md text-left text-gray-800 whitespace-pre-wrap hidden">
                 <!-- AI generated story will appear here -->
@@ -1139,7 +1138,7 @@
 
             try {
                 let chatHistory = [];
-                const prompt = `Given the following apparel or footwear product description, generate a single, witty, and concise sentence or two (under 300 characters, no markdown) that highlights a key sustainability aspect, gives a general sense of its environmental footprint (no specific numbers), and offers a broad reduction tip. Make it sound like a fun, knowledgeable sustainability expert.
+                const prompt = `Given the apparel or footwear related prompt, generate a witty and concise sentences (under 500 characters, no markdown) that highlights a key sustainability aspect, gives a general sense of its environmental footprint (no specific numbers), and offers a broad reduction tip. Make it sound like a fun, knowledgeable sustainability expert.
 
 Product Description: ${productInput}
 
