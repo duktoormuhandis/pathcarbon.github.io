@@ -103,6 +103,9 @@
             transition: transform 0.4s cubic-bezier(0.68, -0.55, 0.27, 1.55), opacity 0.4s ease; /* Bouncy transition */
             border: 1px solid rgba(255, 255, 255, 0.3); /* Subtle light border */
             backdrop-filter: blur(5px); /* Frosted glass effect */
+            display: flex; /* Use flexbox for internal layout */
+            flex-direction: column; /* Stack children vertically */
+            align-items: center; /* Center items horizontally */
         }
 
         .modal-overlay.active .modal-content {
@@ -134,6 +137,9 @@
             padding: 0.8rem 1rem;
             border-radius: 0.5rem;
             transition: border-color 0.2s ease, box-shadow 0.2s ease;
+            width: 50%; /* Cut input box into half */
+            margin-left: auto; /* Center the input box */
+            margin-right: auto; /* Center the input box */
         }
 
         .modal-content textarea:focus,
@@ -167,13 +173,7 @@
             font-size: 1.1rem;
             color: #059669;
         }
-        #loadingIndicator .fa-spinner {
-            animation: spin 1s linear infinite;
-        }
-        @keyframes spin {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
-        }
+        /* Removed fa-spin for static loading text */
 
         /* Output box styling */
         #storyOutput {
@@ -182,6 +182,8 @@
             color: #2f855a; /* Darker green text */
             font-size: 0.95rem;
             line-height: 1.5;
+            max-height: 200px; /* Max height for scrolling */
+            overflow-y: auto; /* Add scrollbar if content overflows */
         }
         #errorOutput {
             background-color: #fee2e2; /* Light red background */
@@ -1017,7 +1019,7 @@
                 <i class="fas fa-magic mr-2"></i> Generate Sustainability Insights
             </button>
             <div id="loadingIndicator" class="hidden mt-4 text-green-600 font-medium">
-                <i class="fas fa-spinner fa-spin mr-2"></i> Generating your insights...
+                <i class="fas fa-spinner mr-2"></i> Generating your insights...
             </div>
             <div id="storyOutput" class="mt-6 p-4 bg-green-100 border border-green-200 rounded-md text-left text-gray-800 whitespace-pre-wrap hidden">
                 <!-- AI generated story will appear here -->
@@ -1137,12 +1139,7 @@
 
             try {
                 let chatHistory = [];
-                const prompt = `Given the following apparel or footwear product description, provide:
-1.  **Key Sustainability Ideas:** Suggest 3-5 core sustainable aspects or features for this product.
-2.  **Associated Average Environmental Footprints:** Provide estimated average carbon footprint (in kg CO2e) and water use (in liters) for a similar product, clearly stating that these are averages and can vary.
-3.  **Ways to Reduce Footprint:** List 3-5 actionable strategies to reduce the carbon footprint and water use of this type of product.
-
-Keep the entire response concise, ideally under 300 characters.
+                const prompt = `Given the following apparel or footwear product description, generate a single, witty, and concise sentence or two (under 300 characters, no markdown) that highlights a key sustainability aspect, gives a general sense of its environmental footprint (no specific numbers), and offers a broad reduction tip. Make it sound like a fun, knowledgeable sustainability expert.
 
 Product Description: ${productInput}
 
@@ -1150,9 +1147,6 @@ Response:`;
 
                 chatHistory.push({ role: "user", parts: [{ text: prompt }] });
                 const payload = { contents: chatHistory };
-                // IMPORTANT: If deploying this code to your own website, replace the empty string below
-                // with your actual Gemini API key obtained from Google AI Studio.
-                // Example: const apiKey = "YOUR_GEMINI_API_KEY";
                 const apiKey = "AIzaSyATV2OYGxDjkvqvpVDPfLbAZ1zcYXyYrps"; 
                 const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=${apiKey}`;
 
